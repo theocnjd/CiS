@@ -173,6 +173,9 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="assets\favicon.ico" />
+    <Content Include="assets\img\bg-mobile-fallback.jpg" />
+    <Content Include="assets\mp4\bg.mp4" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -181,6 +184,7 @@
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\sb-admin-2.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="Default.aspx" />
     <Content Include="Error_Default.aspx" />
     <Content Include="favicon.ico" />
@@ -195,16 +199,17 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
-    <Content Include="img\undraw_posting_photo.svg" />
-    <Content Include="img\undraw_profile.svg" />
-    <Content Include="img\undraw_profile_1.svg" />
-    <Content Include="img\undraw_profile_2.svg" />
-    <Content Include="img\undraw_profile_3.svg" />
-    <Content Include="img\undraw_rocket.svg" />
+    <Content Include="assets\img\undraw_posting_photo.svg" />
+    <Content Include="assets\img\undraw_profile.svg" />
+    <Content Include="assets\img\undraw_profile_1.svg" />
+    <Content Include="assets\img\undraw_profile_2.svg" />
+    <Content Include="assets\img\undraw_profile_3.svg" />
+    <Content Include="assets\img\undraw_rocket.svg" />
     <Content Include="Scripts\AutoComplate.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\GoogleTranslate.js" />
     <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\Landing.js" />
     <Content Include="Scripts\sb-admin-2.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
@@ -1862,7 +1867,7 @@
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
-    <Content Include="WebForm1.aspx" />
+    <Content Include="Landing.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2065,12 +2070,12 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Landing.aspx.cs">
+      <DependentUpon>Landing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Landing.aspx.designer.cs">
+      <DependentUpon>Landing.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

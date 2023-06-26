@@ -156,7 +156,7 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">User activites:</h6>
-                            <a class="collapse-item" href="ClientProfile.aspx">Your Profile</a>
+                            <a class="collapse-item" href="About.aspx">About</a>
                             <a class="collapse-item" href="ContactAdvisors.aspx?key=new">Contact Legal Advisor</a>
                             <a class="collapse-item" href="ContactAdvisors.aspx?key=old">Previous Advisors</a>
                             <a class="collapse-item" href="Correspondences.aspx?usertypeid=2">Submit a Review</a>
@@ -494,7 +494,7 @@
                 <footer class="sticky-footer bg-white" id="masterfooter" runat="server">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; CIS </span>
+                            <span>Copyright &copy;<%: DateTime.Now.Year %> CIS </span>
                         </div>
                     </div>
                 </footer>
