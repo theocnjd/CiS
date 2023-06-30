@@ -209,6 +209,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\GoogleTranslate.js" />
     <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\Landing.js" />
     <Content Include="Scripts\sb-admin-2.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
