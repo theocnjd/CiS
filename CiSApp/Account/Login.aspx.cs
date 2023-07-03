@@ -21,6 +21,12 @@ namespace CiS.Account
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
+
+            Control orgControl = Master.FindControl("sidebarVisibility");
+            if (orgControl != null)
+            {
+                orgControl.Visible = false;
+            }
         }
 
         protected void LogIn(object sender, EventArgs e)

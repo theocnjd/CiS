@@ -25,7 +25,15 @@ namespace CiS.Account
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+
+                //Get org id for the current user
+                MethodCollections mthd = new MethodCollections();
+                mthd.CreateBaseOrgDetails(Email.Text);
+                Application["orgkey"] = Email.Text;
+
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+
+                //IdentityHelper.RedirectToReturnUrl(_redirectUrl, Response);
             }
             else 
             {

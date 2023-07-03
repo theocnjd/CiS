@@ -205,6 +205,8 @@
     <Content Include="assets\img\undraw_profile_2.svg" />
     <Content Include="assets\img\undraw_profile_3.svg" />
     <Content Include="assets\img\undraw_rocket.svg" />
+    <Content Include="MemberDetails.aspx" />
+    <Content Include="Organisation.aspx" />
     <Content Include="Scripts\AutoComplate.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\GoogleTranslate.js" />
@@ -212,6 +214,7 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\Landing.js" />
     <Content Include="Scripts\sb-admin-2.min.js" />
+    <Content Include="Test.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
@@ -2047,7 +2050,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MemberDetails.aspx.cs">
+      <DependentUpon>MemberDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberDetails.aspx.designer.cs">
+      <DependentUpon>MemberDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MethodCollections.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Organisation.aspx.cs">
+      <DependentUpon>Organisation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Organisation.aspx.designer.cs">
+      <DependentUpon>Organisation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -2064,6 +2082,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

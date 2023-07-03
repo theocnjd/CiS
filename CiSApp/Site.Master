@@ -129,14 +129,48 @@
                     Interface
                 </div>
 
+                <li id="sidebarVisibility" runat="server">
+
+                 <a  style="color:white; margin-left:15px" href="Organisation.aspx?orgid=34DB231B-DC83-40FF-B455-7BA7BF25B725">
+                    <i class="fas fa-gavel"></i>
+                    Your Organisation Detail
+                </a>
+                
+                  <hr class="sidebar-divider">
+
+                  <a  style="color:white; margin-left:15px" href="MemberDetails.aspx?orgid=34DB231B-DC83-40FF-B455-7BA7BF25B725">
+                    <i class="fas fa-users"></i>
+                    Upload Statement
+                </a>
+                    <hr class="sidebar-divider">
+
+                  <a  style="color:white; margin-left:15px" href="MemberDetails.aspx?orgid=34DB231B-DC83-40FF-B455-7BA7BF25B725">
+                    <i class="fas fa-users"></i>
+                    Member Detail
+                </a>
+
+                    <hr class="sidebar-divider">
+
+                  <a  style="color:white; margin-left:15px" href="MemberDetails.aspx?orgid=34DB231B-DC83-40FF-B455-7BA7BF25B725">
+                    <i class="fas fa-users"></i>
+                    Vouchers
+                </a>
+                  <hr class="sidebar-divider">
+
+                  <a  style="color:white; margin-left:15px" href="MemberDetails.aspx?orgid=34DB231B-DC83-40FF-B455-7BA7BF25B725">
+                    <i class="fas fa-users"></i>
+                    Expenses
+                </a>
+                    </li>
+
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item" id="AdminWrapper" runat="server">
+                <li class="nav-item" id="AdminWrapper" style="visibility:hidden" runat="server">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dvAdmin"
                         aria-expanded="true" aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Admin</span>
                     </a>
-                    <div id="dvAdmin" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="dvAdmin" class="collapse"  aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Manage Legal Advisors:</h6>
                             <a class="collapse-item" href="AdvisorsDetails.aspx?usertypeid=1">Manage Lawyers</a>
@@ -146,18 +180,18 @@
                     </div>
                 </li>
 
-                <li class="nav-item" id="ClientWrapper" runat="server">
+                <li class="nav-item" style="visibility:hidden"  id="ClientWrapper" runat="server">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dvServiceUsers"
                         aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-users"></i>
                         <span>Service Users</span>
                     </a>
-                    <div id="dvServiceUsers" class="collapse" aria-labelledby="headingUtilities"
+                    <div id="dvServiceUsers"  class="collapse" aria-labelledby="headingUtilities"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">User activites:</h6>
-                            <a class="collapse-item" href="About.aspx">About</a>
-                            <a class="collapse-item" href="ContactAdvisors.aspx?key=new">Contact Legal Advisor</a>
+                            <a class="collapse-item" href="MemberDetails.aspx?orgid=34DB231B-DC83-40FF-B455-7BA7BF25B725">Member Details</a>
+                            <a class="collapse-item" href="about.aspx?key=new">About</a>
                             <a class="collapse-item" href="ContactAdvisors.aspx?key=old">Previous Advisors</a>
                             <a class="collapse-item" href="Correspondences.aspx?usertypeid=2">Submit a Review</a>
 
@@ -167,7 +201,7 @@
 
 
                 <!-- Nav Item - Service Provicer Menu -->
-                <li class="nav-item" id="AdvisorWrapper" runat="server">
+                <li class="nav-item" id="AdvisorWrapper" style="visibility:hidden" runat="server">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dvAdvisor"
                         aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-gavel"></i>
@@ -184,7 +218,8 @@
                         </div>
                     </div>
                 </li>
-                <!-- Divider -->
+               
+               
                 <%-- <hr class="sidebar-divider">--%>
                 <!-- Nav Item - Service Users Collapse Menu -->
 
@@ -440,7 +475,7 @@
                                             <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
                                             &nbsp;&nbsp
                                         <li>
-                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Account/Login" OnLoggingOut="Unnamed_LoggingOut" />
                                         </li>
                                         </ul>
                                     </LoggedInTemplate>
