@@ -91,6 +91,20 @@ namespace CiS
             return returnValue;
         }
 
+        public string GetOrgName(string email)
+        {
+            string returnValue;
+            string sqlcode = "SELECT OrgName FROM tcOrganisation WHERE Email = '" + email + "'";
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand(sqlcode, cn);
+                cn.Open();
+                returnValue = cmd.ExecuteScalar().ToString();
+                cn.Close();
+            }
+            return returnValue;
+        }
+
         public void CreateBaseOrgDetails(string email)
         {
 

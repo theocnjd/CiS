@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="Member Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberDetails.aspx.cs" Inherits="CiS.MemberDetails" %>
 <%@ Register assembly="DevExpress.Web.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %></h2>
-    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="DS_Member" AutoGenerateColumns="False" Width="100%" KeyFieldName="Memberid">
+    <h2>Manage Your <%: Title %></h2>
+    <dx:ASPxGridView ID="GdvwMember" runat="server" DataSourceID="DS_Member" AutoGenerateColumns="False" Width="100%" KeyFieldName="Memberid" Theme="iOS" OnRowInserting="GDvwMember_RowInserting">
+        <SettingsPager PageSize="20">
+        </SettingsPager>
+        <Settings HorizontalScrollBarMode="Visible" />
 <SettingsPopup>
 <HeaderFilter MinHeight="140px"></HeaderFilter>
 </SettingsPopup>
@@ -10,14 +13,14 @@
         <Columns>
             <dx:GridViewCommandColumn ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
             </dx:GridViewCommandColumn>
-            <dx:GridViewDataTextColumn FieldName="Memberid" ReadOnly="True" VisibleIndex="1">
+            <dx:GridViewDataTextColumn FieldName="Memberid" Visible="false" ReadOnly="True" VisibleIndex="1">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Fname" VisibleIndex="2">
+            <dx:GridViewDataTextColumn FieldName="Fname" Caption="First Name" VisibleIndex="2">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="LName" VisibleIndex="3">
+            <dx:GridViewDataTextColumn FieldName="LName" Caption="Last Name" VisibleIndex="3">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Addressid" ReadOnly="True" VisibleIndex="4">
+            <dx:GridViewDataTextColumn FieldName="Addressid" Visible="false" ReadOnly="True" VisibleIndex="4">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="AddressLine1" VisibleIndex="5">
@@ -62,7 +65,7 @@
         <asp:Parameter DbType="Date" Name="MembershipExpire" />
         <asp:Parameter Name="IsTaxPayer" Type="Boolean" />
         <asp:Parameter Name="GiftAidConsentReceived" Type="Boolean" />
-        <asp:Parameter Name="Orgid" Type="Object" />
+        <asp:Parameter Name="Orgid" DbType="Guid" />
         <asp:Parameter Direction="InputOutput" Name="Memberid" Type="Int32" />
     </InsertParameters>
     <SelectParameters>

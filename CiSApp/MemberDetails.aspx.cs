@@ -12,18 +12,32 @@ namespace CiS
         protected void Page_Load(object sender, EventArgs e)
         {
             string orgid;
+            MethodCollections mthd = new MethodCollections();
             if (Request.QueryString.HasKeys())
             {
-                orgid = Request.QueryString["orgid"];
+                orgid = Request.QueryString["orgkey"];
                 DS_Member.SelectParameters[0].DefaultValue = orgid;
+                GdvwMember.DataBind();
             }
-            //else
-            //{
-            //    Guid org = new Guid("34DB231B-DC83-40FF-B455-7BA7BF25B725");
-            //    DS_Member.SelectParameters[0].DefaultValue = "34DB231B-DC83-40FF-B455-7BA7BF25B725";
-            //        //ystem.Guid.NewGuid().ToString();
-            //}
-         
+
+            if (!IsPostBack)
+            {
+                Application["orgkey"] = mthd.GetLogonOrgKey(Context.User.Identity.Name);
+                DS_Member.SelectParameters[0].DefaultValue = Application["orgkey"].ToString();
+                GdvwMember.DataBind();
+  
+            }
+            else
+            {
+                DS_Member.SelectParameters[0].DefaultValue = Application["orgkey"].ToString();
+                GdvwMember.DataBind();
+            }
+
+        }
+
+        protected void GDvwMember_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        {
+            DS_Member.InsertParameters[13].DefaultValue = Application["orgkey"].ToString();
         }
     }
 }

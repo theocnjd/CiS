@@ -69,7 +69,15 @@ namespace CiS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Context.User.Identity.IsAuthenticated)
+            {
+                MethodCollections mthd = new MethodCollections();
+                banner.InnerHtml = mthd.GetOrgName(Context.User.Identity.Name);
+            }
+            else
+            {
+                banner.InnerHtml = "Ultimate System";
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

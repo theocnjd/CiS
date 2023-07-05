@@ -15,7 +15,7 @@ namespace CiS
         {
             if (Request.QueryString.HasKeys())
             {
-                orgid = Request.QueryString["orgid"];
+                orgid = Request.QueryString["orgkey"];
                 DS_Org.SelectParameters[0].DefaultValue = orgid;
                 DS_User.SelectParameters[0].DefaultValue = orgid;
                 FLOrg.DataBind();
