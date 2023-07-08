@@ -39,7 +39,7 @@
 
     <asp:Label ID="lblTest" runat="server"></asp:Label>
        <h2 style="color: black"><%: Title %></h2>
-    <br />
+   <hr />
     <dx:ASPxPageControl ID="pgcrtl" runat="server" ActiveTabIndex="0" Theme="iOS" Width="100%">
         <TabPages>
 

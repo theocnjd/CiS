@@ -13,41 +13,68 @@ namespace CiS
 {
     public partial class UploadFiles : System.Web.UI.Page
     {
+        readonly MethodCollections mthd = new MethodCollections();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack && UploadFile.HasFile)
+
+        }
+
+        protected void BtnFileUpload_Click(object sender, EventArgs e)
+        {
+            if (UploadFile.HasFile)
             {
-                if (Path.GetExtension(UploadFile.FileName).Equals(".xlsx"))
-                {
-                    var excel = new ExcelPackage(UploadFile.FileContent);
-                    var dt = excel.ToDataTable();
-                    var targettable = "tblUploadedStatements";
+               
+                    Guid _key = new Guid(Application["orgkey"].ToString());
+                    if (Path.GetExtension(UploadFile.FileName).Equals(".xlsx"))
+                    {
+                       
+
+                        var excel = new ExcelPackage(UploadFile.FileContent);
+                        var dt = excel.ToDataTable();
+                        var targettable = CmbBoxFileType.Text == "Bank Statement"? "tblUploadedStatements" : "tblUploadedInhouseStatement";
+
+                        // Delete old record before loading the new records.
+                        mthd.DeleteUploadStagingTable(_key, targettable);
 
                     Configuration config = new Configuration();
-                    using (var conn = new SqlConnection(config.GetCiSCS()))
-                    {
-                        var bulkCopy = new SqlBulkCopy(conn)
+                        using (var conn = new SqlConnection(config.GetCiSCS()))
                         {
-                            DestinationTableName = targettable
-                        };
-
-                        conn.Open();
-                        var schema = conn.GetSchema("Columns", new[] { null, null, targettable, null });
-                        foreach (DataColumn sourceColumn in dt.Columns)
-                        {
-                            foreach (DataRow row in schema.Rows)
+                            var bulkCopy = new SqlBulkCopy(conn)
                             {
-                                if (string.Equals(sourceColumn.ColumnName, (string)row["COLUMN_NAME"], StringComparison.OrdinalIgnoreCase))
+                                DestinationTableName = targettable
+                            };
+
+                            conn.Open();
+                            var schema = conn.GetSchema("Columns", new[] { null, null, targettable, null });
+                            foreach (DataColumn sourceColumn in dt.Columns)
+                            {
+                                foreach (DataRow row in schema.Rows)
                                 {
-                                    bulkCopy.ColumnMappings.Add(sourceColumn.ColumnName, (string)row["COLUMN_NAME"]);
-                                    break;
+                                    if (string.Equals(sourceColumn.ColumnName, (string)row["COLUMN_NAME"], StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        bulkCopy.ColumnMappings.Add(sourceColumn.ColumnName, (string)row["COLUMN_NAME"]);
+                                        break;
+                                    }
                                 }
                             }
+                            bulkCopy.WriteToServer(dt);
+
+                            //Add logon orgid key to the new loaded data.
+                            mthd.UpdateUploadStagingTable(_key, targettable);
                         }
-                        bulkCopy.WriteToServer(dt);
                     }
-                }
             }
+        }
+
+        protected void GenInhouseTemplateBtn_Click(object sender, EventArgs e)
+        {
+            ExpInHseTemplate.WriteXlsxToResponse();
+        }
+
+        protected void GenStatementTemplateBtn_Click(object sender, EventArgs e)
+        {
+            ExpStmntTemplate.WriteXlsxToResponse();
         }
     }
 }

@@ -368,7 +368,7 @@
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white" id="masterfooter" runat="server">
                     <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
+                        <div class="copyright text-center my-auto" style="color:black">
                             <span>Copyright &copy;<%: DateTime.Now.Year %> CIS </span>
                         </div>
                     </div>

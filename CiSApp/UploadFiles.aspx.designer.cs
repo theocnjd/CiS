@@ -15,13 +15,67 @@ namespace CiS
     {
 
         /// <summary>
-        /// CmbBoxFileTypes control.
+        /// GenInhouseTemplateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox CmbBoxFileTypes;
+        protected global::System.Web.UI.WebControls.Button GenInhouseTemplateBtn;
+
+        /// <summary>
+        /// GenStatementTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GenStatementTemplate;
+
+        /// <summary>
+        /// ExpInHseTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridViewExporter ExpInHseTemplate;
+
+        /// <summary>
+        /// ExpStmntTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridViewExporter ExpStmntTemplate;
+
+        /// <summary>
+        /// GvInHseTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView GvInHseTemplate;
+
+        /// <summary>
+        /// GvStmntTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView GvStmntTemplate;
+
+        /// <summary>
+        /// CmbBoxFileType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox CmbBoxFileType;
 
         /// <summary>
         /// UploadFile control.
