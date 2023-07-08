@@ -10,7 +10,7 @@ namespace CiS
     public partial class _Default : Page
     {
         string orgid;
-        MethodCollections mthd = new MethodCollections();
+        readonly MethodCollections mthd = new MethodCollections();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString.HasKeys())
@@ -39,17 +39,44 @@ namespace CiS
                 FLOrg.DataBind();
                 GdvwUser.DataBind();
             }
-
-            //lblTest.Text =  Application["orgkey"].ToString();
-
         }
 
-        protected void BtnSave_Click(object sender, EventArgs e)
+        protected void BtnShowEdit_Click(object sender, EventArgs e)
         {
+            txbxOrgName.Text = ((Label)FLOrg.FindControl("OrgNameLabel")).Text;
+            txbxUniqueNo.Text = ((Label)FLOrg.FindControl("OrgUniqueNoLabel")).Text;
+            txbxOrgAbbName.Text = ((Label)FLOrg.FindControl("OrgAbbNameLabel")).Text;
+            txbxEmail.Text = ((Label)FLOrg.FindControl("EmailLabel")).Text;
+            txbxTel.Text = ((Label)FLOrg.FindControl("TelephoneLabel")).Text;
+            txbxMobile.Text = ((Label)FLOrg.FindControl("MobileLabel")).Text;
+            txbxFName.Text = ((Label)FLOrg.FindControl("FnameLabel")).Text;
+            txbxLName.Text = ((Label)FLOrg.FindControl("LnameLabel")).Text;
+            txbxAdLn1.Text = ((Label)FLOrg.FindControl("AddressLine1Label")).Text;
+            txbxAdLn2.Text = ((Label)FLOrg.FindControl("AddressLine2Label")).Text;
+            txbxCity.Text = ((Label)FLOrg.FindControl("CityLabel")).Text;
+            txbxPostCode.Text = ((Label)FLOrg.FindControl("PostCodeLabel")).Text;
 
-            Response.Write(txbxLName.Text);
+            string usertype = ((Label)FLOrg.FindControl("UserTypeidLabel")).Text;
 
-            byte usertypeid = (byte)(cmbxUserType.SelectedIndex);
+            if (usertype == "1")
+            {
+                cmbxUserType.SelectedValue = "1";
+            }
+            if (usertype == "2")
+            {
+                cmbxUserType.SelectedValue = "2";
+            }
+
+            // show edit container.
+            dvEdit.Visible = true;
+            FLOrg.Visible = false;
+        }
+
+        protected void BtnEdit_Click(object sender, EventArgs e)
+        {
+            string orgid = ((Label)FLOrg.FindControl("OrgidLabel")).Text;
+            string userid = ((Label)FLOrg.FindControl("useridLabel")).Text;
+            string addressid = ((Label)FLOrg.FindControl("AddressidLabel")).Text;
 
             DS_Org.UpdateParameters[0].DefaultValue = txbxOrgName.Text;
             DS_Org.UpdateParameters[1].DefaultValue = txbxUniqueNo.Text;
@@ -58,58 +85,74 @@ namespace CiS
             DS_Org.UpdateParameters[4].DefaultValue = txbxMobile.Text;
             DS_Org.UpdateParameters[5].DefaultValue = txbxFName.Text;
             DS_Org.UpdateParameters[6].DefaultValue = txbxLName.Text;
-            DS_Org.UpdateParameters[7].DefaultValue = usertypeid.ToString();
-            DS_Org.UpdateParameters[8].DefaultValue = Convert.ToInt32(seUser.Value) > 0 ? seUser.Value.ToString() : "0";
-            DS_Org.UpdateParameters[9].DefaultValue = Convert.ToInt32(seAddid.Value) > 0 ? seAddid.Value.ToString() : "0";
-
+            DS_Org.UpdateParameters[7].DefaultValue = cmbxUserType.SelectedValue.ToString();
+            DS_Org.UpdateParameters[8].DefaultValue = userid;
+            DS_Org.UpdateParameters[9].DefaultValue = addressid;
             DS_Org.UpdateParameters[10].DefaultValue = txbxAdLn1.Text;
             DS_Org.UpdateParameters[11].DefaultValue = txbxAdLn2.Text;
             DS_Org.UpdateParameters[12].DefaultValue = txbxCity.Text;
             DS_Org.UpdateParameters[13].DefaultValue = txbxPostCode.Text;
-            DS_Org.UpdateParameters["Orgid"].DefaultValue = txbxOrgid.Text;
+            DS_Org.UpdateParameters[14].DefaultValue = txbxOrgAbbName.Text;
+            DS_Org.UpdateParameters[15].DefaultValue = orgid;
 
+            // Call update method to update org details in the database
             DS_Org.Update();
-            EnabledControl(false);
+
+            // hide edit container.
+            dvEdit.Visible = false;
+
+            // Rebind data to the form
+            FLOrg.DataBind();
+
+            // show org profile form.
+            FLOrg.Visible = true;
         }
 
         protected void BtnCancel_Click(object sender, EventArgs e)
         {
-            EnabledControl(false);
+            // hide edit container.
+            dvEdit.Visible = false;
+
+            // Rebind data to the form
+            FLOrg.DataBind();
+
+            // show org profile form.
+            FLOrg.Visible = true;
         }
 
-        protected void BtnEdit_Click(object sender, EventArgs e)
-        {
-            EnabledControl(true);
-        }
+        //protected void BtnEdit_Click(object sender, EventArgs e)
+        //{
+        //    EnabledControl(true);
+        //}
 
-        private void EnabledControl(bool _option)
-        {
-            txbxOrgName.Enabled = _option;
-            txbxUniqueNo.Enabled = _option;
-            //txbxEmail.Enabled = _option;
-            txbxTel.Enabled = _option;
-            txbxMobile.Enabled = _option;
-            txbxFName.Enabled = _option;
-            txbxLName.Enabled = _option;
-            cmbxUserType.Enabled = _option;
-            txbxAdLn1.Enabled = _option;
-            txbxAdLn2.Enabled = _option;
-            txbxCity.Enabled = _option;
-            txbxPostCode.Enabled = _option;
-            txbxAddsearch.Enabled = _option;
-            BtnCancel.Enabled = _option;
-            BtnSave.Enabled = _option;
-            BtnCancel.ClientVisible = _option;
-            BtnSave.ClientVisible = _option;
-            BtnEdit.ClientVisible = !_option;
-            txbxAddsearch.Enabled = _option;
-        }
+        //private void EnabledControl(bool _option)
+        //{
+        //    txbxOrgName.Enabled = _option;
+        //    txbxUniqueNo.Enabled = _option;
+        //    //txbxEmail.Enabled = _option;
+        //    txbxTel.Enabled = _option;
+        //    txbxMobile.Enabled = _option;
+        //    txbxFName.Enabled = _option;
+        //    txbxLName.Enabled = _option;
+        //    cmbxUserType.Enabled = _option;
+        //    txbxAdLn1.Enabled = _option;
+        //    txbxAdLn2.Enabled = _option;
+        //    txbxCity.Enabled = _option;
+        //    txbxPostCode.Enabled = _option;
+        //    txbxAddsearch.Enabled = _option;
+        //    txbxOrgAbbName.Enabled = _option;
+        //    BtnCancel.Enabled = _option;
+        //    BtnSave.Enabled = _option;
+        //    BtnCancel.Visible = _option;
+        //    BtnSave.Visible = _option;
+        //    BtnEdit.Visible = !_option;
+        //    txbxAddsearch.Enabled = _option;
+        //}
 
         protected void GdvwUser_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
             DS_User.InsertParameters[1].DefaultValue = Application["orgkey"].ToString();
         }
 
-    
     }
 }

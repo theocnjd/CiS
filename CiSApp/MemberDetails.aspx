@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Member Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberDetails.aspx.cs" Inherits="CiS.MemberDetails" %>
 <%@ Register assembly="DevExpress.Web.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Manage Your <%: Title %></h2>
+    <h2 style="color:black">Manage Your <%: Title %></h2>
     <dx:ASPxGridView ID="GdvwMember" runat="server" DataSourceID="DS_Member" AutoGenerateColumns="False" Width="100%" KeyFieldName="Memberid" Theme="iOS" OnRowInserting="GDvwMember_RowInserting">
         <SettingsPager PageSize="20">
         </SettingsPager>
