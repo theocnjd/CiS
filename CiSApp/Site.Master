@@ -30,6 +30,7 @@
         .container-master {
   font-family: arial;
   font-size: 24px;
+  color:#0D6EFD;
   margin: 25px;
   width: 70%;
   /*height: 200px;*/
@@ -156,17 +157,23 @@
 
                  <a  style="color:white; margin-left:15px" href="Default">
                     <i class="fas fa-gavel"></i>
-                    Your Organisation Details
+                    Your Details
                 </a>
                 
                   <hr class="sidebar-divider">
 
-                  <a  style="color:white; margin-left:15px" href="MemberDetails">
-                    <i class="fas fa-users"></i>
+                  <a  style="color:white; margin-left:15px" href="Uploadfiles">
+                    <i class="fas fa-file-upload"></i>
                     Upload Statements
                 </a>
                     <hr class="sidebar-divider">
 
+                    <a  style="color:white; margin-left:15px" href="ProcessDonation">
+                    <i class="fas fa-fw fa-cog""></i>
+                    Process Donations
+                </a>
+
+                    <hr class="sidebar-divider">
                   <a  style="color:white; margin-left:15px" href="MemberDetails">
                     <i class="fas fa-users"></i>
                     Members Details
@@ -174,13 +181,13 @@
 
                     <hr class="sidebar-divider">
 
-                  <a  style="color:white; margin-left:15px" href="MemberDetails">
+                  <a  style="color:white; margin-left:15px" href="Org">
                     <i class="fas fa-users"></i>
                     Vouchers
                 </a>
                   <hr class="sidebar-divider">
 
-                  <a  style="color:white; margin-left:15px" href="MemberDetails.aspx">
+                  <a  style="color:white; margin-left:15px" href="MemberDetails">
                     <i class="fas fa-users"></i>
                     Expenses
                 </a>

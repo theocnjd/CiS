@@ -24,15 +24,6 @@ namespace CiS
         protected global::System.Web.UI.WebControls.Label lblTest;
 
         /// <summary>
-        /// TblOrd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable TblOrd;
-
-        /// <summary>
         /// pgcrtl control.
         /// </summary>
         /// <remarks>
@@ -48,16 +39,25 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxFormLayout FLOrg;
+        protected global::System.Web.UI.WebControls.FormView FLOrg;
 
         /// <summary>
-        /// txbxOrgid control.
+        /// dvEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxOrgid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvEdit;
+
+        /// <summary>
+        /// ErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
         /// txbxOrgName control.
@@ -66,7 +66,16 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxOrgName;
+        protected global::System.Web.UI.WebControls.TextBox txbxOrgName;
+
+        /// <summary>
+        /// txbxOrgAbbName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbxOrgAbbName;
 
         /// <summary>
         /// txbxUniqueNo control.
@@ -75,7 +84,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxUniqueNo;
+        protected global::System.Web.UI.WebControls.TextBox txbxUniqueNo;
 
         /// <summary>
         /// txbxEmail control.
@@ -84,7 +93,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxEmail;
+        protected global::System.Web.UI.WebControls.TextBox txbxEmail;
 
         /// <summary>
         /// txbxTel control.
@@ -93,7 +102,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxTel;
+        protected global::System.Web.UI.WebControls.TextBox txbxTel;
 
         /// <summary>
         /// txbxMobile control.
@@ -102,16 +111,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxMobile;
-
-        /// <summary>
-        /// seUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit seUser;
+        protected global::System.Web.UI.WebControls.TextBox txbxMobile;
 
         /// <summary>
         /// txbxFName control.
@@ -120,7 +120,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxFName;
+        protected global::System.Web.UI.WebControls.TextBox txbxFName;
 
         /// <summary>
         /// txbxLName control.
@@ -129,7 +129,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxLName;
+        protected global::System.Web.UI.WebControls.TextBox txbxLName;
 
         /// <summary>
         /// cmbxUserType control.
@@ -138,25 +138,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbxUserType;
-
-        /// <summary>
-        /// txbxAddsearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxAddsearch;
-
-        /// <summary>
-        /// seAddid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxSpinEdit seAddid;
+        protected global::System.Web.UI.WebControls.DropDownList cmbxUserType;
 
         /// <summary>
         /// txbxAdLn1 control.
@@ -165,7 +147,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxAdLn1;
+        protected global::System.Web.UI.WebControls.TextBox txbxAdLn1;
 
         /// <summary>
         /// txbxAdLn2 control.
@@ -174,7 +156,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxAdLn2;
+        protected global::System.Web.UI.WebControls.TextBox txbxAdLn2;
 
         /// <summary>
         /// txbxCity control.
@@ -183,7 +165,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxCity;
+        protected global::System.Web.UI.WebControls.TextBox txbxCity;
 
         /// <summary>
         /// txbxPostCode control.
@@ -192,25 +174,16 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txbxPostCode;
+        protected global::System.Web.UI.WebControls.TextBox txbxPostCode;
 
         /// <summary>
-        /// BtnEdit control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton BtnEdit;
-
-        /// <summary>
-        /// BtnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton BtnSave;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// BtnCancel control.
@@ -219,7 +192,7 @@ namespace CiS
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.Bootstrap.BootstrapButton BtnCancel;
+        protected global::System.Web.UI.WebControls.Button BtnCancel;
 
         /// <summary>
         /// GdvwUser control.

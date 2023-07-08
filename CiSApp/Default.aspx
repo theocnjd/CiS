@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Organisation Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CiS._Default" %>
 
-<%@ Register Assembly="DevExpress.Web.Bootstrap.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
-<%@ Register assembly="DevExpress.Web.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -10,7 +10,7 @@
             z-index: 100000;
         }
     </style>
-     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgo66dmE1AIiRvFBquYzyltWZwHM5Ka9U &sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgo66dmE1AIiRvFBquYzyltWZwHM5Ka9U &sensor=false&libraries=places"></script>
     <script type="text/javascript">
         function OnInit(s, e) {
             var places = new google.maps.places.Autocomplete(s.GetInputElement());
@@ -37,193 +37,228 @@
         }
     </script>
 
-    <asp:Label ID="lblTest" runat="server" ></asp:Label>
-    <table id="TblOrd" runat="server" style="width:100%">
-        <tr>
-            <td><h2><%: Title %></h2></td>
-            <td style="float:right; align-items:end">
-              
- 
-                </td>
-        </tr>
-    </table>
-    
-     <br />
-
-
-   <%-- <dx:BootstrapTabControl ID="BootstrapTabControl1" runat="server"></dx:BootstrapTabControl>--%>
-
+    <asp:Label ID="lblTest" runat="server"></asp:Label>
+       <h2 style="color: black"><%: Title %></h2>
+    <br />
     <dx:ASPxPageControl ID="pgcrtl" runat="server" ActiveTabIndex="0" Theme="iOS" Width="100%">
         <TabPages>
-           
+
             <dx:TabPage Name="Your Detail" Text="Your Detail">
                 <ContentCollection>
                     <dx:ContentControl runat="server">
-                   
+                        
+                        
 
-    <br />
-    <dx:ASPxFormLayout ID="FLOrg" runat="server" DataSourceID="DS_Org" EnableTheming="True" Theme="iOS" Width="100%">
-        <Items>
-            <dx:LayoutItem ColSpan="1" FieldName="Orgid" ClientVisible="false">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxOrgid" runat="server" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="OrgName" Caption="Organisation Name">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxOrgName" runat="server" Enabled="false" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="OrgUniqueNo">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxUniqueNo" runat="server" Enabled="false" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="Email" >
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxEmail" runat="server" Enabled="false" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="Telephone">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxTel" runat="server" Enabled="false" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="Mobile">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxMobile" runat="server" Enabled="false" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="userid" ClientVisible="false">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxSpinEdit ID="seUser" runat="server" Enabled="false" Number="0">
-                        </dx:ASPxSpinEdit>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="Fname">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxFName" runat="server" Enabled="false" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="Lname">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxLName" runat="server" Enabled="false" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="UserTypeid" Caption="Usert Type">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxComboBox ID="cmbxUserType" runat="server" DataSourceID="DS_userType" Enabled="false" TextField="UserTypeDesc" ValueField="UserTypeid">
-                        </dx:ASPxComboBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" Caption="Search Address">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxAddsearch" runat="server" Enabled="false"  Width="500px">
-                            <ClientSideEvents Init="OnInit" />
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
+                        <br />
+<asp:FormView ID="FLOrg" runat="server" DataSourceID="DS_Org" CellPadding="4" ForeColor="#333333" Width="500px" >
+        <EditRowStyle BackColor="#999999" />
+        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+        <ItemTemplate>
+            <div class="row" >
+               
+                <hr />
+                <br />
+                <br />
+                <div class="col-md-12">
+                    <section id="ReadForm">
+                        <div class="form-horizontal">
+                            Orgid:
+            <asp:Label ID="OrgidLabel" runat="server" Height="20px" Text='<%# Bind("Orgid") %>' />
+                            <br />
+                            Organisation Name:
+            <asp:Label ID="OrgNameLabel" runat="server" Height="20px" Text='<%# Bind("OrgName") %>' />
+                            <br />
+                            Unique No:
+            <asp:Label ID="OrgUniqueNoLabel" runat="server" Height="20px" Text='<%# Bind("OrgUniqueNo") %>' />
+                            <br />
+                            OrgAbbName:
+            <asp:Label ID="OrgAbbNameLabel" runat="server" Height="20px" Text='<%# Bind("OrgAbbName") %>' />
+                            <br />
+                            Email:
+            <asp:Label ID="EmailLabel" runat="server" Height="20px" Text='<%# Bind("Email") %>' />
+                            <br />
+                            Telephone:
+            <asp:Label ID="TelephoneLabel" runat="server" Height="20px" Text='<%# Bind("Telephone") %>' />
+                            <br />
+                            Mobile:
+            <asp:Label ID="MobileLabel" runat="server" Height="20px" Text='<%# Bind("Mobile") %>' />
+                            <br />
+                            userid:
+            <asp:Label ID="useridLabel" runat="server" Height="20px" Text='<%# Eval("userid") %>' />
+                            <br />
+                            First name:
+            <asp:Label ID="FnameLabel" runat="server" Height="20px" Text='<%# Bind("Fname") %>' />
+                            <br />
+                            Last name:
+            <asp:Label ID="LnameLabel" runat="server" Height="20px" Text='<%# Bind("Lname") %>' />
+                            <br />
+                            UserTypeid:
+            <asp:Label ID="UserTypeidLabel" runat="server" Height="20px" Text='<%# Bind("UserTypeid") %>' />
+                            <br />
+                            Addressid:
+            <asp:Label ID="AddressidLabel" runat="server" Height="20px" Text='<%# Eval("Addressid") %>' />
+                            <br />
+                            Address Line 1:
+            <asp:Label ID="AddressLine1Label" runat="server" Height="20px" Text='<%# Bind("AddressLine1") %>' />
+                            <br />
+                            Address Line 2:
+            <asp:Label ID="AddressLine2Label" runat="server" Height="20px" Text='<%# Bind("AddressLine2") %>' />
+                            <br />
+                            City:
+            <asp:Label ID="CityLabel" runat="server" Height="20px" Text='<%# Bind("City") %>' />
+                            <br />
+                            PostCode:
+            <asp:Label ID="PostCodeLabel" runat="server" Height="20px" Text='<%# Bind("PostCode") %>' />
+                            <%--<br />
+                            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />--%>
+                            <br />
+                           
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div style="margin-top: 15px">
+            <asp:Button ID="BtnShowEdit" runat="server" Text="Edit" CssClass="btn btn-primary" OnClick="BtnShowEdit_Click" />
+           </div>
+        </ItemTemplate>
+         
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+         
+    </asp:FormView>
+   
+
+     <br />
+    <div id="dvEdit" runat="server" class="row" visible="false" style="align-content: flex-start;">
+        <div class="col-md-12">
+            <section id="EditForm">
+                <div class="form-horizontal">
+
+                    <p class="text-danger">
+                        <asp:Literal runat="server" ID="ErrorMessage" />
+                    </p>
+                    <hr />
+                    <asp:ValidationSummary runat="server" CssClass="text-danger" />
+
+                    <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Organisation Name</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxOrgName" runat="server" AutoPostBack="false" CssClass="form-control" Width="400px" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Organisation Short Name</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxOrgAbbName" runat="server" AutoPostBack="false" CssClass="form-control" Width="400px" />
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Unique No</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxUniqueNo" runat="server" AutoPostBack="false" CssClass="form-control" Width="400px" />
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Email</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxEmail" runat="server" AutoPostBack="false" Enabled="false" CssClass="form-control" Width="400px" />
+                        </div>
+                    </div>
+
+                      <div class="form-group">
+                        <asp:Label runat="server" AutoPostBack="false" AssociatedControlID="txbxTel" CssClass="col-md-2 control-label">Telephone</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxTel" runat="server" TextMode="Phone" CssClass="form-control" Width="400px" ToolTip="Phone number must start with '0'" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txbxTel"
+                                CssClass="text-danger" ErrorMessage="Phone number is not valid."  />
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <asp:Label runat="server" AutoPostBack="false" AssociatedControlID="txbxMobile" CssClass="col-md-2 control-label">Mobile</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxMobile" runat="server" TextMode="Phone" CssClass="form-control" Width="400px" ToolTip="Phone number must start with '0'" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txbxMobile"
+                                CssClass="text-danger" ErrorMessage="Phone number is not valid."  />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">First Name</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxFName" runat="server" AutoPostBack="false" CssClass="form-control" Width="400px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Last Name</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxLName" runat="server" AutoPostBack="false" CssClass="form-control" Width="400px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Gender</asp:Label>
+                        <div class="col-md-10">
+                            <asp:DropDownList
+                                ID="cmbxUserType"
+                                runat="server"
+                                CssClass="form-control"
+                                DataSourceID="DS_userType"
+                                DataTextField="UserTypeDesc"
+                                DataValueField="UserTypeid"
+                                Width="400px" />
+                        </div>
+                    </div>
+                  
+                    <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Address Line 1</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxAdLn1" runat="server" TextMode="Email" CssClass="form-control" Width="400px" ReadOnly="True" />
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <asp:Label runat="server"  CssClass="col-md-2 control-label">Address Line 2</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxAdLn2" runat="server" TextMode="Email" CssClass="form-control" Width="400px" ReadOnly="True" />
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">City</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxCity" runat="server" TextMode="Email" CssClass="form-control" Width="400px" ReadOnly="True" />
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <asp:Label runat="server"  CssClass="col-md-2 control-label">PostCode</asp:Label>
+                        <div class="col-md-10">
+                            <asp:TextBox ID="txbxPostCode" runat="server" TextMode="Email" CssClass="form-control" Width="400px" ReadOnly="True" />
+                        </div>
+                    </div>
+                    
+                     <div style="margin-left: 25px">
+                        <asp:Button ID="Button1" runat="server" CssClass="row btn btn-primary"  Text="Save" OnClick="BtnEdit_Click" />
+                        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                         <asp:Button ID="BtnCancel" runat="server" CssClass="row btn btn-secondary"  Text="Cancel" OnClick="BtnCancel_Click" />
+                    </div>
 
 
-            <dx:LayoutItem ColSpan="1" FieldName="Addressid" ClientVisible="false">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxSpinEdit ID="seAddid" runat="server" Number="0">
-                        </dx:ASPxSpinEdit>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="AddressLine1" Caption="Address Line 1">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxAdLn1" runat="server" Enabled="false" ClientInstanceName="adln1" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="AddressLine2" Caption="Address Line 2">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxAdLn2" runat="server" Enabled="false" ClientInstanceName="adln2" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="City">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxCity" runat="server" Enabled="false" ClientInstanceName="adln3" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" FieldName="PostCode">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="txbxPostCode" runat="server" Enabled="false" ClientInstanceName="adln4" Width="500px">
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
 
-           <dx:EmptyLayoutItem ColSpan="1">
-            </dx:EmptyLayoutItem>
+                </div>
+            </section>
+        </div>
+    </div>
 
-             <dx:LayoutItem ColSpan="1" ShowCaption="False">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
 
-                          <dx:BootstrapButton ID="BtnEdit" runat="server" AutoPostBack="false" CssClasses-Control="btn btn-secondary" Text="Edit" OnClick="BtnEdit_Click">
-<CssClasses Control="btn btn-secondary"></CssClasses>
-                          </dx:BootstrapButton>
-                        <dx:BootstrapButton ID="BtnSave" runat="server" OnClick="BtnSave_Click" AutoPostBack="false" CssClasses-Control="btn btn-primary" ClientVisible="false" Text="Save">
-<CssClasses Control="btn btn-primary"></CssClasses>
-                        </dx:BootstrapButton>
-                        <dx:BootstrapButton ID="BtnCancel" runat="server" OnClick="BtnCancel_Click" AutoPostBack="false" CssClasses-Control="btn btn-secondary" ClientVisible="false" Text="Cancel">
-<CssClasses Control="btn btn-secondary"></CssClasses>
-                        </dx:BootstrapButton>
-                      
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            
-        </Items>
-        <SettingsItemCaptions Location="Top" />
-    </dx:ASPxFormLayout>
- </dx:ContentControl>
+
+
+
+                    </dx:ContentControl>
                 </ContentCollection>
             </dx:TabPage>
-             <dx:TabPage Name="Add Users" Text="Add Users">
+            <dx:TabPage Name="Add Users" Text="Add Users">
                 <ContentCollection>
                     <dx:ContentControl runat="server">
                         <dx:ASPxGridView ID="GdvwUser" runat="server" DataSourceID="DS_User" AutoGenerateColumns="False" KeyFieldName="Userid" OnRowInserting="GdvwUser_RowInserting" Theme="iOS">
@@ -247,11 +282,12 @@
                                 </dx:GridViewDataComboBoxColumn>
                             </Columns>
                         </dx:ASPxGridView>
+
                         <br />
-                        <asp:SqlDataSource ID="DS_User" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>" 
-                            InsertCommand="uspInsertUser" InsertCommandType="StoredProcedure" 
-                            SelectCommand="uspGetUsers" SelectCommandType="StoredProcedure" 
-                            UpdateCommand="uspUpdateUser" UpdateCommandType="StoredProcedure" >
+                        <asp:SqlDataSource ID="DS_User" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>"
+                            InsertCommand="uspInsertUser" InsertCommandType="StoredProcedure"
+                            SelectCommand="uspGetUsers" SelectCommandType="StoredProcedure"
+                            UpdateCommand="uspUpdateUser" UpdateCommandType="StoredProcedure">
                             <InsertParameters>
                                 <asp:Parameter Name="UserTypeid" Type="Byte" />
                                 <asp:Parameter Name="UserOrgid" DbType="Guid" />
@@ -276,10 +312,10 @@
     </dx:ASPxPageControl>
 
 
-    <asp:SqlDataSource ID="DS_Org" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>" 
-        SelectCommand="uspGetOrganisation" SelectCommandType="StoredProcedure" 
+    <asp:SqlDataSource ID="DS_Org" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>"
+        SelectCommand="uspGetOrganisation" SelectCommandType="StoredProcedure"
         UpdateCommand="uspUpdateOrganisation" UpdateCommandType="StoredProcedure">
-   
+
         <SelectParameters>
             <asp:QueryStringParameter Name="Orgid" QueryStringField="Orgid" DbType="Guid" />
         </SelectParameters>
@@ -292,15 +328,16 @@
             <asp:Parameter Name="Fname" Type="String" />
             <asp:Parameter Name="Lname" Type="String" />
             <asp:Parameter Name="UserTypeid" Type="Byte" />
-            <asp:Parameter Name="userid" Type="Int32"/>
-            <asp:Parameter Name="Addressid" Type="Int32"  />
+            <asp:Parameter Name="userid" Type="Int32" />
+            <asp:Parameter Name="Addressid" Type="Int32" />
             <asp:Parameter Name="AddressLine1" Type="String" />
             <asp:Parameter Name="AddressLine2" Type="String" />
             <asp:Parameter Name="City" Type="String" />
             <asp:Parameter Name="PostCode" Type="String" />
-            <asp:Parameter Name="Orgid"  DbType="Guid" />
+            <asp:Parameter Name="OrgAbbName" Type="String" />
+            <asp:Parameter Name="Orgid" DbType="Guid" />
         </UpdateParameters>
     </asp:SqlDataSource>
-  
-    <asp:SqlDatasource  ID="DS_userType" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>" SelectCommand="uspGetUserType" SelectCommandType="StoredProcedure" ></asp:SqlDatasource>
+
+    <asp:SqlDataSource ID="DS_userType" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>" SelectCommand="uspGetUserType" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 </asp:Content>
