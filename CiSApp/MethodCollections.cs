@@ -19,7 +19,7 @@ namespace CiS
     {
         // Get the connection string to the db.
         readonly string cis_connStr = new Configuration().GetCiSCS();
-
+        string sqlcode;
         // update db with user type id of the current user 
         public void UpdateUser(int usertype, string email)
         {
@@ -37,7 +37,7 @@ namespace CiS
         public Int32 GetUserType(string email)
         {
             Int32 returnValue;
-            string sqlcode = "SELECT UserType FROM AspNetUsers WHERE Email = '" + email + "'";         
+            sqlcode = "SELECT UserType FROM AspNetUsers WHERE Email = '" + email + "'";         
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -52,7 +52,7 @@ namespace CiS
         public string GetAdminEmail()
         {
             string returnValue;
-            string sqlcode = "SELECT TOP(1) ISNULL(Email, 'testingapp@nikdamconsulting.co.uk') FROM AspNetUsers WHERE UserType = 1";
+            sqlcode = "SELECT TOP(1) ISNULL(Email, 'testingapp@nikdamconsulting.co.uk') FROM AspNetUsers WHERE UserType = 1";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -66,7 +66,7 @@ namespace CiS
         public string GetLogonEmail(string name)
         {
             string returnValue;
-            string sqlcode = "SELECT Email FROM AspNetUsers WHERE UserName = '" + name + "'";
+            sqlcode = "SELECT Email FROM AspNetUsers WHERE UserName = '" + name + "'";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -80,7 +80,7 @@ namespace CiS
         public string GetLogonOrgKey(string email)
         {
             string returnValue;
-            string sqlcode = "SELECT Orgid FROM tcOrganisation WHERE Email = '" + email + "'";
+            sqlcode = "SELECT Orgid FROM tcOrganisation WHERE Email = '" + email + "'";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -94,7 +94,7 @@ namespace CiS
         public string GetOrgName(string email)
         {
             string returnValue;
-            string sqlcode = "SELECT ISNULL(NULLIF(OrgName,' '), 'Ultimate System') as OrgName FROM tcOrganisation WHERE Email = '" + email + "'";
+            sqlcode = "SELECT ISNULL(NULLIF(OrgName,' '), 'Ultimate System') as OrgName FROM tcOrganisation WHERE Email = '" + email + "'";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -107,7 +107,6 @@ namespace CiS
 
         public void CreateBaseOrgDetails(string email)
         {
-
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
 
@@ -122,8 +121,40 @@ namespace CiS
                 cmd.ExecuteNonQuery();
                 cn.Close();
             }
-           
         }
+
+        public void DeleteUploadStagingTable(Guid identifier, string tblname)
+        {
+            sqlcode = "DELETE " + tblname + " WHERE Orgid = '" + identifier + "' AND CreatedDate < convert(date, getdate())";
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+
+                SqlCommand cmd = new SqlCommand(sqlcode, cn)
+                {
+                    CommandTimeout = 120
+                };
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+        }
+
+        public void UpdateUploadStagingTable(Guid identifier, string tblname)
+        {
+            sqlcode = "UPDATE " + tblname + " SET Orgid = '" + identifier + "' WHERE Orgid IS NULL";
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+
+                SqlCommand cmd = new SqlCommand(sqlcode, cn)
+                {
+                    CommandTimeout = 60
+                };
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+        }
+
 
 
         //public void LinkClientWithAdvisorAddress(Int32 clientid, Int32 addressid, string requiredservice)

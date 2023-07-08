@@ -3,6 +3,7 @@
 <%@ Register Assembly="DevExpress.Web.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2 style="color:black"><%: Title %></h2>
+    <hr />
     <style>
         .banner{
             width:max-content;

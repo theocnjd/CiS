@@ -6457,8 +6457,9 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     background-color: #42444e !important
 }
 
+/*Changed header & footer background stop light grey from white*/
 .bg-white {
-    background-color: #fff !important
+    background-color: lightgrey;  /*#fff !important*/
 }
 
 .bg-transparent {
