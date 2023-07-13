@@ -30,7 +30,6 @@
         .container-master {
   font-family: arial;
   font-size: 24px;
-  color:#0D6EFD;
   margin: 25px;
   width: 70%;
   /*height: 200px;*/
@@ -53,13 +52,13 @@
 <body id="page-top">
 
     <form runat="server">
-        <%--    <asp:ScriptManager runat="server">
+         <asp:ScriptManager runat="server">
             <Scripts>
-    <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-        <%--Framework Scripts--%>
-        <%--Site Scripts--%>
+ <%--  To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884
+        Framework Scripts>
+        Site Scripts--%>
 
-        <%--    <asp:ScriptReference Name="MsAjaxBundle" />
+        <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
@@ -72,7 +71,7 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
             </Scripts>
-        </asp:ScriptManager> --%>
+        </asp:ScriptManager>
 
 
 
@@ -139,17 +138,25 @@
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item" id="DashboardWrapper" runat="server">
-                    <a class="nav-link" href="index.html">
+              <%--  <li class="nav-item" id="DashboardWrapper" runat="server">
+                    <a class="nav-link" href="CiSDashboard">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
+                </li>--%>
+
+                  <li  class="nav-item" id="DashboardWrapper" runat="server">
+                    <a class="nav-link" href="CiSDashboard">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        Dashboard
+
+                    </a>
                 </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
                 <!-- Heading -->
-                <div class="sidebar-heading">
+                <div id="dvinterface" runat="server" class="sidebar-heading">
                     Interface
                 </div>
 
@@ -174,22 +181,29 @@
                 </a>
 
                     <hr class="sidebar-divider">
+
                   <a  style="color:white; margin-left:15px" href="MemberDetails">
                     <i class="fas fa-users"></i>
                     Members Details
                 </a>
+                  <hr class="sidebar-divider">
 
-                    <hr class="sidebar-divider">
-
-                  <a  style="color:white; margin-left:15px" href="Org">
+                  <a  style="color:white; margin-left:15px" href="ProcessGiftAids">
                     <i class="fas fa-users"></i>
-                    Vouchers
+                    Process Gift Aids
                 </a>
                   <hr class="sidebar-divider">
 
-                  <a  style="color:white; margin-left:15px" href="MemberDetails">
+                  <a  style="color:white; margin-left:15px" href="Expenses">
                     <i class="fas fa-users"></i>
                     Expenses
+                </a>
+
+                 <hr class="sidebar-divider">
+
+                  <a  style="color:white; margin-left:15px" href="Voucher">
+                    <i class="fas fa-users"></i>
+                    Vouchers
                 </a>
                     </li>
 
@@ -317,7 +331,7 @@
                         <%--<div class="input-group" id="google_translate_element"></div>--%>
                         <div  id="google_translate_element"></div>
 
-                        <div class="container-master" >
+                        <div class="container-master text-primary" >
                             <div class="child">
                                 <h1 id="banner" runat="server"></h1>
                             </div>

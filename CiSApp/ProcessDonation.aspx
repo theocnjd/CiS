@@ -17,7 +17,10 @@
 
      <div class="row">
         <div class="col-md-4">
-              <h6 style="color:black;"><b>Select 'Yes' to generate your donor list!</b></h6>
+            <div class="text-ms font-weight-bold text-primary text-capitalize mb-1">
+                                Select 'Yes' to generate your donor list!
+                            </div>
+             <%-- <h6 style="color:black;"><b>Select 'Yes' to generate your donor list!</b></h6>--%>
                 <div style="float:left;">
                     <dx:ASPxComboBox ID="ChkBxDnrList" runat="server" Theme="iOS" NullText="Select from the list" >
                         <Items>
@@ -34,8 +37,10 @@
             </div>
 
          <div class="col-md-8">
-             
-                    <h6  style="color:black;"><b>Validate total donation here!</b></h6>
+             <div class="text-ms font-weight-bold text-primary text-capitalize mb-1">
+                                Validate total donation here!
+                            </div>
+                    <%--<h6  style="color:black;"><b>Validate total donation here!</b></h6>--%>
                     <dx:ASPxGridView ID="GdvwDonHead" runat="server" AutoGenerateColumns="False" DataSourceID="ds_DonHead" EnableTheming="True" KeyFieldName="DonationHeadid" Theme="iOS">
                         <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
                         <SettingsPopup>
@@ -172,7 +177,10 @@
         </tr>--%>
         <tr>
             <td>
-                 <h6  style="color:black;"><b>For anonymous donor, click on 'New' to enter the record!</b></h6>
+                <div class="text-ms font-weight-bold text-primary text-capitalize mb-1">
+                                For anonymous donor, click on 'New' to enter the record!
+                            </div>
+               <%--  <h6  style="color:black;"><b>For anonymous donor, click on 'New' to enter the record!</b></h6>--%>
                 <dx:ASPxGridView ID="GdvwDonDetails" runat="server" AutoGenerateColumns="False" DataSourceID="ds_Donation" EnableTheming="True" KeyFieldName="DonationDetailid" Theme="iOS" Width="100%" OnRowInserting="GdvwDonDetails_RowInserting" OnRowUpdating="GdvwDonDetails_RowUpdating" OnCustomCallback="GdvwDonDetails_CustomCallback">
                     <SettingsEditing Mode="Inline">
                     </SettingsEditing>
