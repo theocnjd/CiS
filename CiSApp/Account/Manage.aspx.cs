@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using CiS.Models;
+using System.Web.UI;
 
 namespace CiS.Account
 {
@@ -47,6 +48,34 @@ namespace CiS.Account
             LoginsCount = manager.GetLogins(User.Identity.GetUserId()).Count;
 
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+
+            // Hide sidebar on the master page.
+            Control orgControl = Master.FindControl("sidebarVisibility");
+            if (orgControl != null)
+            {
+                orgControl.Visible = false;
+            }
+
+            // Hide dasjboard on the master page.
+            Control crtlDashboard = Master.FindControl("DashboardWrapper");
+            if (crtlDashboard != null)
+            {
+                crtlDashboard.Visible = false;
+            }
+
+            // Hide interface on the master page.
+            Control crtlInterface = Master.FindControl("dvinterface");
+            if (crtlInterface != null)
+            {
+                crtlInterface.Visible = false;
+            }
+
+            // Hide sidebar Toggle
+            Control dvsidebarToggle = Master.FindControl("dvsidebarToggle");
+            if (dvsidebarToggle != null)
+            {
+                dvsidebarToggle.Visible = false;
+            }
 
             if (!IsPostBack)
             {

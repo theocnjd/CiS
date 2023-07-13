@@ -105,6 +105,20 @@ namespace CiS
             return returnValue;
         }
 
+        public string GetLogOnIdentity(string email)
+        {
+            string returnValue;
+            sqlcode = "SELECT OrgIdentity FROM tcOrganisation WHERE Email = '" + email + "'";
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand(sqlcode, cn);
+                cn.Open();
+                returnValue = cmd.ExecuteScalar().ToString();
+                cn.Close();
+            }
+            return returnValue;
+        }
+
         public void CreateBaseOrgDetails(string email)
         {
             using (SqlConnection cn = new SqlConnection(cis_connStr))
@@ -155,26 +169,155 @@ namespace CiS
             }
         }
 
+        public DataTable GetActiveMembers (Int32 orgIdentity)
+        {
 
+            DataTable dt = new DataTable();
+            
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("rptGetActiveMembers", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrgIdentity", orgIdentity);
+               
+                cmd.CommandTimeout = 360;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
 
-        //public void LinkClientWithAdvisorAddress(Int32 clientid, Int32 addressid, string requiredservice)
-        //{
-        //    using (SqlConnection cn = new SqlConnection(cis_connStr))
-        //    {
+            }
 
-        //        SqlCommand cmd = new SqlCommand("usp_InsertLinkClientWithAdvisorAddress", cn)
-        //        {
-        //            CommandType = CommandType.StoredProcedure
-        //        };
-        //        cmd.Parameters.AddWithValue("@Clientid", clientid);
-        //        cmd.Parameters.AddWithValue("@Addressid", addressid);
-        //        cmd.Parameters.AddWithValue("@RequiredService", requiredservice);
-        //         cmd.CommandTimeout = 60;
-        //        cn.Open();
-        //        cmd.ExecuteNonQuery();
-        //        cn.Close();
-        //    }
-        //}
+            return dt;
+        }
+        public string GetActMembers(Int32 orgIdentity)
+        {
+            string dt = string.Empty;
+
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("rptGetActiveMembers", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrgIdentity", orgIdentity);
+
+                cn.Open();
+                cmd.CommandTimeout = 360;
+                
+                dt = cmd.ExecuteScalar().ToString();
+                cn.Close();
+            }
+
+            return dt;
+        }
+        public string GetAnonymousDonor(Int32 orgIdentity, string transDate)
+        {
+            string dt = string.Empty;
+
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("rptGetAnonymousDonorByDate", cn)
+                {
+                    CommandType = CommandType.StoredProcedure,
+                   
+                };
+               
+                cmd.Parameters.AddWithValue("@OrgIdentity", orgIdentity);
+                cmd.Parameters.AddWithValue("@transDate", transDate);
+
+                cn.Open();
+                cmd.CommandTimeout = 360;
+
+                dt = cmd.ExecuteScalar().ToString();
+                cn.Close();
+            }
+
+            return dt;
+        }
+
+         public string GetTotalDonationByMonth(Int32 orgIdentity, string transDate)
+        {
+            string dt = string.Empty;
+
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("rptGetTotalDonationByMonth", cn)
+                {
+                    CommandType = CommandType.StoredProcedure,
+                   
+                };
+               
+                cmd.Parameters.AddWithValue("@OrgIdentity", orgIdentity);
+                cmd.Parameters.AddWithValue("@transDate", transDate);
+
+                cn.Open();
+                cmd.CommandTimeout = 360;
+
+                dt = cmd.ExecuteScalar().ToString();
+                cn.Close();
+            }
+
+            return dt;
+        }
+
+        public DataTable GetDonationByPaymentType(Int32 orgIdentity, string transDate)
+        {
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("rptGetDonationByPaymentType", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrgIdentity", orgIdentity);
+                cmd.Parameters.AddWithValue("@transDate", transDate);
+
+                cmd.CommandTimeout = 360;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
+
+            }
+
+            return dt;
+        }
+        public DataTable GetAnonymousDonorByDate(Int32 orgIdentity, string transDate)
+        {
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("rptGetAnonymousDonorByDate", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrgIdentity", orgIdentity);
+                cmd.Parameters.AddWithValue("@transDate", transDate);
+
+                cmd.CommandTimeout = 360;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
+
+            }
+
+            return dt;
+        }
+        public DataTable GetDonationCategoryByYear(Int32 orgIdentity, string transDate)
+        {
+
+            DataTable dt = new DataTable();
+
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("rptGetDonationCategoryByYear", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrgIdentity", orgIdentity);
+                cmd.Parameters.AddWithValue("@transDate", transDate);
+
+                cmd.CommandTimeout = 360;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dt);
+
+            }
+
+            return dt;
+        }
+
         //public void CreateClient(string email)
         //{
         //    using (SqlConnection cn = new SqlConnection(cis_connStr))
@@ -195,28 +338,6 @@ namespace CiS
         //    }
         //}
 
-        //public string CreateAdvisor(string RegisteredBusinessName, string email, string website, int regulatoryAuthorityid)
-        //{
-        //    string rtnValue = string.Empty;
-        //    using (SqlConnection cn = new SqlConnection(cis_connStr))
-        //    {
-
-        //        SqlCommand cmd = new SqlCommand("usp_InsertLegalAdvisor", cn)
-        //        {
-        //            CommandType = CommandType.StoredProcedure
-        //        };
-        //        cmd.Parameters.AddWithValue("@RegisteredBusinessName", RegisteredBusinessName);
-        //        cmd.Parameters.AddWithValue("@Email", email);
-        //        cmd.Parameters.AddWithValue("@Website", website);
-        //        cmd.Parameters.AddWithValue("@RegulatoryAuthorityid", regulatoryAuthorityid);
-
-        //        cmd.CommandTimeout = 60;
-        //        cn.Open();
-        //        rtnValue = cmd.ExecuteScalar().ToString();
-        //        cn.Close();
-        //    }
-        //    return rtnValue;
-        //}
 
         //public DataTable GetClientByEmail(string email)
         //{
