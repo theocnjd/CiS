@@ -15,6 +15,20 @@ namespace CiS
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+            var sentFrom = "testingapp@nikdamconsulting.co.uk";
+
+            // Configure the client:
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+
+            var mail = new System.Net.Mail.MailMessage(sentFrom, message.Destination)
+            {
+                Subject = message.Subject,
+                Body = message.Body,
+                IsBodyHtml = true,
+            };
+
+            client.Send(mail);
+
             return Task.FromResult(0);
         }
     }

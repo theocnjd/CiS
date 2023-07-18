@@ -39,6 +39,17 @@ namespace CiS
                 FLOrg.DataBind();
                 GdvwUser.DataBind();
             }
+             string orgname = ((Label)FLOrg.FindControl("OrgAbbNameLabel")).Text;
+            if (string.IsNullOrEmpty(orgname))
+            {
+                lblNotification.Text = "Please, fill in your organisation's remaining details.";
+                lblNotification.Visible = true;
+                lblNotification.Font.Bold = true;
+            }
+            else
+            {
+                lblNotification.Visible = false;
+            }
         }
 
         protected void BtnShowEdit_Click(object sender, EventArgs e)

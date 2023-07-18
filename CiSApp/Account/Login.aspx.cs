@@ -49,6 +49,20 @@ namespace CiS.Account
             {
                 dvsidebarToggle.Visible = false;
             }
+            
+            // Hide Login panel
+            Control mastertopnavbar = Master.FindControl("masterTopNavBar");
+            if (mastertopnavbar != null)
+            {
+                mastertopnavbar.Visible = false;
+            }
+
+            // Hide entire sidebar
+            Control accordionSidebar = Master.FindControl("accordionSidebar");
+            if (accordionSidebar != null)
+            {
+                accordionSidebar.Visible = false;
+            }
         }
 
         protected void LogIn(object sender, EventArgs e)
