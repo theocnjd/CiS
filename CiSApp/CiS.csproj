@@ -219,6 +219,7 @@
     <Content Include="assets\img\bg-mobile-fallback.jpg" />
     <Content Include="assets\mp4\bg.mp4" />
     <Content Include="CiSDashboard.aspx" />
+    <Content Include="Account\ConfirmEmailAlert.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -231,6 +232,8 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Error_Default.aspx" />
+    <Content Include="Error_PageNoFoound.aspx" />
+    <Content Include="Error_TimeOut.aspx" />
     <Content Include="Expenses.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2168,6 +2171,13 @@
       <DependentUpon>CiSDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Configuration.cs" />
+    <Compile Include="Account\ConfirmEmailAlert.aspx.cs">
+      <DependentUpon>ConfirmEmailAlert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ConfirmEmailAlert.aspx.designer.cs">
+      <DependentUpon>ConfirmEmailAlert.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2207,6 +2217,20 @@
     <Compile Include="Error_Default.aspx.designer.cs">
       <DependentUpon>Error_Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error_PageNoFoound.aspx.cs">
+      <DependentUpon>Error_PageNoFoound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_PageNoFoound.aspx.designer.cs">
+      <DependentUpon>Error_PageNoFoound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error_TimeOut.aspx.cs">
+      <DependentUpon>Error_TimeOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error_TimeOut.aspx.designer.cs">
+      <DependentUpon>Error_TimeOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ExcelPackageExtensions.cs" />
     <Compile Include="Expenses.aspx.cs">
       <DependentUpon>Expenses.aspx</DependentUpon>
@@ -2218,6 +2242,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="MemberDetails.aspx.cs">
       <DependentUpon>MemberDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

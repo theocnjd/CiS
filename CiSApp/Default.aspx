@@ -40,14 +40,14 @@
     <asp:Label ID="lblTest" runat="server"></asp:Label>
     <h2 style="color: black"><%: Title %></h2>
     <hr />
+
     <dx:ASPxPageControl ID="pgcrtl" runat="server" ActiveTabIndex="0" Theme="iOS" Width="100%">
         <TabPages>
 
             <dx:TabPage Name="Your Detail" Text="Your Detail">
                 <ContentCollection>
                     <dx:ContentControl runat="server">
-
-
+                        <asp:Label ID="lblNotification" runat="server" Visible="false" ForeColor="Red" ></asp:Label>
 
                         <br />
                         <asp:FormView ID="FLOrg" runat="server" DataSourceID="DS_Org" CellPadding="4" ForeColor="#333333" Width="500px">

@@ -52,7 +52,7 @@ namespace CiS
         public string GetAdminEmail()
         {
             string returnValue;
-            sqlcode = "SELECT TOP(1) ISNULL(Email, 'testingapp@nikdamconsulting.co.uk') FROM AspNetUsers WHERE UserType = 1";
+            sqlcode = "SELECT TOP(1) 'testingapp@nikdamconsulting.co.uk' FROM AspNetUsers";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);

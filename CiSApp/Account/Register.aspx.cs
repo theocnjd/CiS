@@ -20,20 +20,24 @@ namespace CiS.Account
             if (result.Succeeded)
             {
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+                string code = manager.GenerateEmailConfirmationToken(user.Id);
+                string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                
 
                 //Get org id for the current user
                 MethodCollections mthd = new MethodCollections();
                 mthd.CreateBaseOrgDetails(Email.Text);
+                Application.Lock();
                 Application["orgkey"] = Email.Text;
+                Application.UnLock();
 
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
 
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 //IdentityHelper.RedirectToReturnUrl(_redirectUrl, Response);
+                Response.Redirect("~/Account/ConfirmEmailAlert.aspx");
             }
             else 
             {
@@ -67,6 +71,19 @@ namespace CiS.Account
             if (dvsidebarToggle != null)
             {
                 dvsidebarToggle.Visible = false;
+            }
+            // Hide Login panel
+            Control mastertopnavbar = Master.FindControl("masterTopNavBar");
+            if (mastertopnavbar != null)
+            {
+                mastertopnavbar.Visible = false;
+            }
+
+            // Hide entire sidebar
+            Control accordionSidebar = Master.FindControl("accordionSidebar");
+            if (accordionSidebar != null)
+            {
+                accordionSidebar.Visible = false;
             }
         }
     }
