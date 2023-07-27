@@ -76,7 +76,7 @@ namespace CiS
             }
             else
             {
-                banner.InnerHtml = "Ultimate System";
+                banner.InnerHtml = "cFis";
             }
         }
 
