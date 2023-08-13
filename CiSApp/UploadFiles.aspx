@@ -24,26 +24,30 @@
     <div style="width: 600px">
         <div>
             <ul style="color: black">
-                <li>Click on 'In-house Template' button to download template to upload in-house donation records.</li>
-                <li>If your bank spreadsheet is not from <b>'Natwest'</b> or <b>'Barclays'</b>, click on 'Statement Template' to see field's names that your spreadsheet must have.'</li>
+                <li>Click on <b>'Manual Donation'</b> button to download template to upload in-house donation records.</li>
+                <li>Click on <b>'Donor List'</b> button to download template to bulk upload donors. Also, answer <b>'Yes'</b> or <b>'No'</b> to confirm that a donor is a <b>tax payer</b> and has agreed 
+                    that your organisation can claim <b>Gift Aid</b> on their donations.</li>
+                <li>If your bank spreadsheet is not from <b>'Llyods'</b> or <b>'Barclays'</b> bank, click on 'Statement Template' to see field's names that your spreadsheet must have.'</li>
             </ul>
         </div>
-    
+    <hr />
         <div class="row" style="margin:6px">
-            <asp:Button ID="GenInhouseTemplateBtn" runat="server" CssClass="btn btn-primary" Text="In-house Template" OnClick="GenInhouseTemplateBtn_Click" />
+            <asp:Button ID="GenInhouseTemplateBtn" runat="server" CssClass="btn btn-primary" Text="Manual Donation" OnClick="GenInhouseTemplateBtn_Click" />
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <asp:Button ID="GenStatementTemplate" runat="server" CssClass="btn btn-primary" Text="Statement Template" OnClick="GenStatementTemplateBtn_Click" />
+            <asp:Button ID="GenStatementTemplate" runat="server" CssClass="btn btn-primary" Text="Bank Statement" OnClick="GenStatementTemplateBtn_Click" />
+             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <asp:Button ID="GenDonorListBtn" runat="server" CssClass="btn btn-primary" Text="Donor List" OnClick="GenDonorListBtn_Click" />
         </div>
 
     </div>
-
     <div class="row">
         <div class="col-md-4 center">
             <table>
                 <tr>
                     <td>
                         <dx:ASPxGridViewExporter ID="ExpInHseTemplate" GridViewID="GvInHseTemplate" FileName="Inhouse_Template" runat="server"></dx:ASPxGridViewExporter>
-                        <dx:ASPxGridViewExporter ID="ExpStmntTemplate" GridViewID="GvStmntTemplate" FileName="Statement_Template" runat="server"></dx:ASPxGridViewExporter>
+                        <dx:ASPxGridViewExporter ID="ExpStmntTemplate" GridViewID="GvStmntTemplate" FileName="Bank_Statement_Template" runat="server"></dx:ASPxGridViewExporter>
+                        <dx:ASPxGridViewExporter ID="ExpDnrList" GridViewID="GvDnrList" FileName="Donor_List_Template" runat="server"></dx:ASPxGridViewExporter>
                     </td>
                 </tr>
                 <tr>
@@ -97,13 +101,47 @@
                             </Columns>
                         </dx:ASPxGridView>
                     </td>
+
+
+                      <td>
+                        <dx:ASPxGridView ID="GvDnrList" ClientVisible="False" runat="server" AutoGenerateColumns="False">
+                            <SettingsPopup>
+                                <HeaderFilter MinHeight="140px"></HeaderFilter>
+                            </SettingsPopup>
+                            <Columns>
+                               <dx:GridViewDataTextColumn Name="First Name" Caption="First Name" VisibleIndex="0">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="Last Name" Caption="Last Name" VisibleIndex="1">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="AddressLine1" Caption="AddressLine1" VisibleIndex="2">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="AddressLine2" Caption="AddressLine2" VisibleIndex="3">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="City" Caption="City" VisibleIndex="4">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="PostCode" Caption="PostCode" VisibleIndex="5">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="Telephone" Caption="Telephone" VisibleIndex="6">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="Email" Caption="Email" VisibleIndex="7">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="IsTaxPayer" Caption="IsTaxPayer"  VisibleIndex="8" >
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="GiftAidConsentReceived" Caption="GiftAidConsentReceived" VisibleIndex="9">
+                                </dx:GridViewDataTextColumn>
+                            </Columns>
+                        </dx:ASPxGridView>
+                        
+                    </td>
+
                 </tr>
                 <tr>
                     <td>
                         <dx:ASPxComboBox ID="CmbBoxFileType" runat="server" Width="250px" Theme="iOS" ForeColor="Black" NullText="Select from the list">
                             <Items>
                                 <dx:ListEditItem Text="Bank Statement" Value="0" />
-                                <dx:ListEditItem Text="In-house Spreadsheet" Value="1" />
+                                <dx:ListEditItem Text="Bulk Upload Manual Donations" Value="1" />
+                                <dx:ListEditItem Text="Bulk Upload Donors List" Value="2" />
                             </Items>
                         </dx:ASPxComboBox>
                     </td>
