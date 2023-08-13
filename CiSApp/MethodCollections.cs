@@ -169,6 +169,21 @@ namespace CiS
             }
         }
 
+        public void ProcessUploadedBankStatement(Guid identifier)
+        {
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("uspExtractDDFromBankStatements", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OrgIdentity", identifier);
+
+                cn.Open();
+                cmd.CommandTimeout = 360;
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+        }
+
         public DataTable GetActiveMembers (Int32 orgIdentity)
         {
 

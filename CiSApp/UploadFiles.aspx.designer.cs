@@ -33,6 +33,15 @@ namespace CiS
         protected global::System.Web.UI.WebControls.Button GenStatementTemplate;
 
         /// <summary>
+        /// GenDonorListBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GenDonorListBtn;
+
+        /// <summary>
         /// ExpInHseTemplate control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace CiS
         protected global::DevExpress.Web.ASPxGridViewExporter ExpStmntTemplate;
 
         /// <summary>
+        /// ExpDnrList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridViewExporter ExpDnrList;
+
+        /// <summary>
         /// GvInHseTemplate control.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,15 @@ namespace CiS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView GvStmntTemplate;
+
+        /// <summary>
+        /// GvDnrList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView GvDnrList;
 
         /// <summary>
         /// CmbBoxFileType control.
