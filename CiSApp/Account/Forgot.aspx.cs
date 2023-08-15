@@ -12,30 +12,6 @@ namespace CiS.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        }
-
-        protected void Forgot(object sender, EventArgs e)
-        {
-            if (IsValid)
-            {
-                // Validate the user's email address
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                ApplicationUser user = manager.FindByName(Email.Text);
-                if (user == null || !manager.IsEmailConfirmed(user.Id))
-                {
-                    FailureText.Text = "The user either does not exist or is not confirmed.";
-                    ErrorMessage.Visible = true;
-                    return;
-                }
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                // Send email with the code and the redirect to reset password page
-                //string code = manager.GeneratePasswordResetToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetResetPasswordRedirectUrl(code, Request);
-                //manager.SendEmail(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-                loginForm.Visible = false;
-                DisplayEmail.Visible = true;
-            }
-
             // Hide sidebar on the master page.
             Control orgControl = Master.FindControl("sidebarVisibility");
             if (orgControl != null)
@@ -56,11 +32,50 @@ namespace CiS.Account
             {
                 crtlInterface.Visible = false;
             }
+
             // Hide sidebar Toggle
             Control dvsidebarToggle = Master.FindControl("dvsidebarToggle");
             if (dvsidebarToggle != null)
             {
                 dvsidebarToggle.Visible = false;
+            }
+
+            // Hide Login panel
+            Control mastertopnavbar = Master.FindControl("masterTopNavBar");
+            if (mastertopnavbar != null)
+            {
+                mastertopnavbar.Visible = false;
+            }
+
+            // Hide entire sidebar
+            Control accordionSidebar = Master.FindControl("accordionSidebar");
+            if (accordionSidebar != null)
+            {
+                accordionSidebar.Visible = false;
+            }
+        }
+
+        protected void Forgot(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                // Validate the user's email address
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                ApplicationUser user = manager.FindByName(Email.Text);
+                if (user == null || !manager.IsEmailConfirmed(user.Id))
+                {
+                    FailureText.Text = "The user either does not exist or is not confirmed.";
+                    ErrorMessage.Visible = true;
+                    return;
+                }
+                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                // Send email with the code and the redirect to reset password page
+                string code = manager.GeneratePasswordResetToken(user.Id);
+                string callbackUrl = IdentityHelper.GetResetPasswordRedirectUrl(code, Request);
+                manager.SendEmail(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+                loginForm.Visible = false;
+                DisplayEmail.Visible = true;
             }
         }
     }

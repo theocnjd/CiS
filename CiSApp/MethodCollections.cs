@@ -94,7 +94,7 @@ namespace CiS
         public string GetOrgName(string email)
         {
             string returnValue;
-            sqlcode = "SELECT ISNULL(NULLIF(OrgName,' '), 'CiS System') as OrgName FROM tcOrganisation WHERE Email = '" + email + "'";
+            sqlcode = "SELECT ISNULL(NULLIF(OrgName,' '), 'cFis System') as OrgName FROM tcOrganisation WHERE Email = '" + email + "'";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);

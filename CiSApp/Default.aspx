@@ -248,7 +248,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <asp:Label runat="server" CssClass="col-md-2 control-label">Gender</asp:Label>
+                                            <asp:Label runat="server" CssClass="col-md-2 control-label">User Type</asp:Label>
                                             <div class="col-md-10">
                                                 <asp:DropDownList
                                                     ID="cmbxUserType"

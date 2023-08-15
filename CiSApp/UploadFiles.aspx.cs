@@ -85,12 +85,35 @@ namespace CiS
                             else if (CmbBoxFileType.SelectedIndex == 2)
                             {
                                 //Process uploaded donors
-                                mthd.RunSuppliedProcedure("uspProcessUploadedDonors");
+                                try
+                                {
+                                    mthd.RunSuppliedProcedure("uspProcessUploadedDonors");
+                                    Response.Redirect("~/MemberDetails");
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    lblErrorAlert.Text = ex.Message;
+                                    lblErrorAlert.ForeColor = System.Drawing.Color.Red;
+                                    lblErrorAlert.Visible = true;
+                                }
+                                
                             }
                             else if (CmbBoxFileType.SelectedIndex == 1)
                             {
-                                //Process uploaded manual donation
-                                mthd.RunSuppliedProcedure("uspProcessUploadedManualDonations"); 
+                                try
+                                {
+                                    //Process uploaded manual donation
+                                    mthd.RunSuppliedProcedure("uspProcessUploadedManualDonations");
+                                    Response.Redirect("~/ProcessDonation");
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    lblErrorAlert.Text = ex.Message;
+                                    lblErrorAlert.ForeColor = System.Drawing.Color.Red;
+                                    lblErrorAlert.Visible = true;
+                                }  
                             }
                         }
                         catch (Exception ex)

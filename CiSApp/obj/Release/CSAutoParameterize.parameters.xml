@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=ATOS;Initial Catalog=CiSDB;Integrated Security=True" tags="SqlConnectionString">
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=atossvr.database.windows.net;Initial Catalog=CiSDB;User ID=theophilus;Password=Kike1om0;Connect Timeout=60;&#xD;&#xA;         Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\theoc\\source\\repos\\CiS\\CiSApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
-  <parameter name="CiSDBCS-Web.config Connection String" description="CiSDBCS Connection String used in web.config by the application to access the database." defaultValue="Data Source=ATOS;Initial Catalog=CiSDB;Integrated Security=True" tags="SqlConnectionString">
+  <parameter name="CiSDBCS-Web.config Connection String" description="CiSDBCS Connection String used in web.config by the application to access the database." defaultValue="Data Source=atossvr.database.windows.net;Initial Catalog=CiSDB;User ID=theophilus;Password=Kike1om0;Connect Timeout=60;&#xD;&#xA;         Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\theoc\\source\\repos\\CiS\\CiSApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CiSDBCS']/@connectionString" />
   </parameter>
 </parameters>
