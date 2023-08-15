@@ -65,11 +65,26 @@ namespace CiS.Account
             {
                 crtlInterface.Visible = false;
             }
+
             // Hide sidebar Toggle
             Control dvsidebarToggle = Master.FindControl("dvsidebarToggle");
             if (dvsidebarToggle != null)
             {
                 dvsidebarToggle.Visible = false;
+            }
+
+            // Hide Login panel
+            Control mastertopnavbar = Master.FindControl("masterTopNavBar");
+            if (mastertopnavbar != null)
+            {
+                mastertopnavbar.Visible = false;
+            }
+
+            // Hide entire sidebar
+            Control accordionSidebar = Master.FindControl("accordionSidebar");
+            if (accordionSidebar != null)
+            {
+                accordionSidebar.Visible = false;
             }
         }
 

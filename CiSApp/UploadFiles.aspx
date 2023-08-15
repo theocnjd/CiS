@@ -5,6 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2 style="color: black"><%: Title %></h2>
     <hr />
+    <div>
+        <dx:ASPxLabel ID="lblErrorAlert" runat="server" Visible="false"></dx:ASPxLabel>
+    </div>
     <style>
         html, body {
             height: 100%;
@@ -45,7 +48,7 @@
             <table>
                 <tr>
                     <td>
-                        <dx:ASPxGridViewExporter ID="ExpInHseTemplate" GridViewID="GvInHseTemplate" FileName="Inhouse_Template" runat="server"></dx:ASPxGridViewExporter>
+                        <dx:ASPxGridViewExporter ID="ExpInHseTemplate" GridViewID="GvInHseTemplate" FileName="Historical_Donation_Template" runat="server"></dx:ASPxGridViewExporter>
                         <dx:ASPxGridViewExporter ID="ExpStmntTemplate" GridViewID="GvStmntTemplate" FileName="Bank_Statement_Template" runat="server"></dx:ASPxGridViewExporter>
                         <dx:ASPxGridViewExporter ID="ExpDnrList" GridViewID="GvDnrList" FileName="Donor_List_Template" runat="server"></dx:ASPxGridViewExporter>
                     </td>
@@ -57,28 +60,29 @@
                                 <HeaderFilter MinHeight="140px"></HeaderFilter>
                             </SettingsPopup>
                             <Columns>
-                                <dx:GridViewDataTextColumn Name="ID" Caption="ID" VisibleIndex="0">
+                                <dx:GridViewDataTextColumn Name="Donor_ID" Caption="Donor_ID" VisibleIndex="0">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="First Name" Caption="first Name" VisibleIndex="1">
+                                 <dx:GridViewDataTextColumn Name="Donation_Date" Caption="Donation_Date" VisibleIndex="1">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Last Name" Caption="Last Name" VisibleIndex="2">
+                                <dx:GridViewDataTextColumn Name="First Name" Caption="first Name" VisibleIndex="2">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Offering" Caption="Offering" VisibleIndex="3">
+                                <dx:GridViewDataTextColumn Name="Last Name" Caption="Last Name" VisibleIndex="3">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Tithe" Caption="Tithe" VisibleIndex="4">
+                                <dx:GridViewDataTextColumn Name="Offering" Caption="Offering" VisibleIndex="4">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Thanks Giving" Caption="Thanks Giving" VisibleIndex="5">
+                                <dx:GridViewDataTextColumn Name="Tithe" Caption="Tithe" VisibleIndex="5">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Pledges" Caption="Pledges" VisibleIndex="6">
+                                <dx:GridViewDataTextColumn Name="Thanks Giving" Caption="Thanks Giving" VisibleIndex="6">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Building Fund" Caption="Building Fund" VisibleIndex="7">
+                                <dx:GridViewDataTextColumn Name="Pledges" Caption="Pledges" VisibleIndex="7">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Others" Caption="Others" VisibleIndex="8">
+                                <dx:GridViewDataTextColumn Name="Building Fund" Caption="Building Fund" VisibleIndex="8">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Total" Caption="Total" VisibleIndex="9">
+                                <dx:GridViewDataTextColumn Name="Others" Caption="Others" VisibleIndex="9">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Date" Caption="Date" VisibleIndex="10">
+                                <dx:GridViewDataTextColumn Name="Total" Caption="Total" VisibleIndex="10">
                                 </dx:GridViewDataTextColumn>
+                               
                             </Columns>
                         </dx:ASPxGridView>
                         

@@ -4,7 +4,7 @@
     <h2><%: Title %>.</h2>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <asp:PlaceHolder id="loginForm" runat="server">
                 <div class="form-horizontal">
                     <h4>Forgot your password?</h4>
@@ -16,15 +16,15 @@
                     </asp:PlaceHolder>
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
-                        <div class="col-md-10">
+                        <div class="col-md-6">
                             <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                                 CssClass="text-danger" ErrorMessage="The email field is required." />
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="Forgot" Text="Email Link" CssClass="btn btn-default" />
+                        <div class="col-md-offset-2 col-md-6">
+                            <asp:Button runat="server" OnClick="Forgot" Text="Email Link" CssClass="btn btn-primary" />
                         </div>
                     </div>
                 </div>
