@@ -153,7 +153,7 @@ namespace CiS
             }
         }
 
-        public void UpdateUploadStagingTable(Guid identifier, string tblname)
+        public void UpdateUploadedStagingTables(Guid identifier, string tblname)
         {
             sqlcode = "UPDATE " + tblname + " SET Orgid = '" + identifier + "' WHERE Orgid IS NULL";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
@@ -179,6 +179,19 @@ namespace CiS
 
                 cn.Open();
                 cmd.CommandTimeout = 360;
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+        }
+        public void RunSuppliedProcedure(string _proc)
+        {
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand(_proc, cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cn.Open();
+                cmd.CommandTimeout = 1800;
                 cmd.ExecuteNonQuery();
                 cn.Close();
             }

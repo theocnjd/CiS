@@ -207,7 +207,7 @@
                         </a>
                     </li>
 
-                    <hr class="sidebar-divider">
+                    <hr class="sidebar-divider" >
 
                     <li class="nav-item">
                         <a class="nav-link" href="ProcessDonation">
@@ -226,27 +226,27 @@
                         </a>
                     </li>
 
-                    <hr class="sidebar-divider">
+                    <hr class="sidebar-divider" style="display:none">
 
-                    <li class="nav-item">
+                    <li class="nav-item" style="display:none">
                         <a class="nav-link" href="ProcessGiftAids">
                             <i class="fas fa-shekel-sign"></i>
                             <span>Process Gift Aids</span>
                         </a>
                     </li>
 
-                    <hr class="sidebar-divider">
+                    <hr class="sidebar-divider" style="display:none">
 
-                    <li class="nav-item">
+                    <li class="nav-item" style="display:none">
                         <a class="nav-link" href="Expenses">
                             <i class="fas fa-coins"></i>
                             <span>Expenses</span>
                         </a>
                     </li>
 
-                    <hr class="sidebar-divider">
+                    <hr class="sidebar-divider" style="display:none">
 
-                    <li class="nav-item">
+                    <li class="nav-item" style="display:none">
                         <a class="nav-link" href="Voucher">
                             <i class="fas fa-anchor"></i>
                             <span>Vouchers</span>
