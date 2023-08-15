@@ -75,12 +75,22 @@ namespace CiS
                             bulkCopy.WriteToServer(dt);
 
                             //Add logon orgid key to the new loaded data.
-                            mthd.UpdateUploadStagingTable(_key, targettable);
+                            mthd.UpdateUploadedStagingTables(_key, targettable);
 
                             if (CmbBoxFileType.SelectedIndex == 0)
                             {
                                 //Add logon orgid key to the new loaded data.
                                 mthd.ProcessUploadedBankStatement(_key);
+                            }
+                            else if (CmbBoxFileType.SelectedIndex == 2)
+                            {
+                                //Process uploaded donors
+                                mthd.RunSuppliedProcedure("uspProcessUploadedDonors");
+                            }
+                            else if (CmbBoxFileType.SelectedIndex == 1)
+                            {
+                                //Process uploaded manual donation
+                                mthd.RunSuppliedProcedure("uspProcessUploadedManualDonations"); 
                             }
                         }
                         catch (Exception ex)

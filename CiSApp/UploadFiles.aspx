@@ -109,25 +109,29 @@
                                 <HeaderFilter MinHeight="140px"></HeaderFilter>
                             </SettingsPopup>
                             <Columns>
-                               <dx:GridViewDataTextColumn Name="First Name" Caption="First Name" VisibleIndex="0">
+                                <dx:GridViewDataTextColumn Name="Donor ID" Caption="Donor ID" VisibleIndex="0">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Last Name" Caption="Last Name" VisibleIndex="1">
+                               <dx:GridViewDataTextColumn Name="First Name" Caption="First Name" VisibleIndex="1">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="AddressLine1" Caption="AddressLine1" VisibleIndex="2">
+                                <dx:GridViewDataTextColumn Name="Last Name" Caption="Last Name" VisibleIndex="2">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="AddressLine2" Caption="AddressLine2" VisibleIndex="3">
+                                <dx:GridViewDataTextColumn Name="AddressLine1" Caption="AddressLine1" VisibleIndex="3">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="City" Caption="City" VisibleIndex="4">
+                                <dx:GridViewDataTextColumn Name="AddressLine2" Caption="AddressLine2" VisibleIndex="4">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="PostCode" Caption="PostCode" VisibleIndex="5">
+                                <dx:GridViewDataTextColumn Name="City" Caption="City" VisibleIndex="5">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Telephone" Caption="Telephone" VisibleIndex="6">
+                                <dx:GridViewDataTextColumn Name="PostCode" Caption="PostCode" VisibleIndex="6">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="Email" Caption="Email" VisibleIndex="7">
+                                <dx:GridViewDataTextColumn Name="Telephone" Caption="Telephone" VisibleIndex="7">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="IsTaxPayer" Caption="IsTaxPayer"  VisibleIndex="8" >
+                                <dx:GridViewDataTextColumn Name="Email" Caption="Email" VisibleIndex="8">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Name="GiftAidConsentReceived" Caption="GiftAidConsentReceived" VisibleIndex="9">
+                                <dx:GridViewDataTextColumn Name="Gender" Caption="Gender" VisibleIndex="9">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="IsTaxPayer" Caption="IsTaxPayer"  VisibleIndex="10" >
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Name="GiftAidConsentReceived" Caption="GiftAidConsentReceived" VisibleIndex="11">
                                 </dx:GridViewDataTextColumn>
                             </Columns>
                         </dx:ASPxGridView>
