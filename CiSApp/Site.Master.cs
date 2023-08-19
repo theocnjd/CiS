@@ -72,12 +72,31 @@ namespace CiS
             if (Context.User.Identity.IsAuthenticated)
             {
                 MethodCollections mthd = new MethodCollections();
-                banner.InnerHtml = mthd.GetOrgName(Context.User.Identity.Name);
+                string uid = Context.User.Identity.Name;
+                
+                banner.InnerHtml = mthd.GetOrgName(uid);
+                Int32 roleid = mthd.GetCurrentUserRole(uid.ToString(), 0);
+                switch (roleid)
+                {
+                    case 1:
+                        liAdminPnl.Visible = true;
+                        hrdashboard.Visible = false;
+                        hrinterface.Visible = false;
+                        dvinterface.Visible = false;
+                        sidebarVisibility.Visible = false;
+                        break;
+                    case 2:
+                        DashboardWrapper.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {
                 banner.InnerHtml = "cFis";
             }
+          
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

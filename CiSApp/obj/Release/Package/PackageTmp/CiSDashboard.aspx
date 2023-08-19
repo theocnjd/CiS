@@ -209,19 +209,19 @@
     <asp:SqlDataSource ID="Dsrc_DonCatByYear" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>" SelectCommand="rptGetDonationCategoryByYear" SelectCommandType="StoredProcedure">
         <SelectParameters>
             <asp:Parameter DefaultValue="1" Name="OrgIdentity" Type="Int32" />
-            <asp:ControlParameter ControlID="DE_Date" DefaultValue="07/07/2023" Name="transDate" PropertyName="Value" Type="String" />
+            <asp:ControlParameter ControlID="DE_Date"  Name="transDate" PropertyName="Value" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="Dsrc_DonTypeByDate" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>" SelectCommand="rptGetTotalDonationByType" SelectCommandType="StoredProcedure">
         <SelectParameters>
             <asp:Parameter DefaultValue="1" Name="OrgIdentity" Type="Int32" />
-            <asp:ControlParameter ControlID="DE_Date" DefaultValue="07/07/2023" Name="transDate" PropertyName="Value" Type="String" />
+            <asp:ControlParameter ControlID="DE_Date"  Name="transDate" PropertyName="Value" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="Dsrc_DonPymntType" runat="server" ConnectionString="<%$ ConnectionStrings:CiSDBCS %>" SelectCommand="rptGetDonationByPaymentType" SelectCommandType="StoredProcedure">
         <SelectParameters>
             <asp:Parameter Name="OrgIdentity" Type="Int32" DefaultValue="1" />
-            <asp:ControlParameter ControlID="DE_Date" Type="String" DefaultValue="07/07/2023" Name="transDate" PropertyName="Value" />
+            <asp:ControlParameter ControlID="DE_Date" Type="String"  Name="transDate" PropertyName="Value" />
         </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>

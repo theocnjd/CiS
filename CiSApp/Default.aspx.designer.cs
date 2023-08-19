@@ -42,6 +42,15 @@ namespace CiS
         protected global::System.Web.UI.WebControls.Label lblNotification;
 
         /// <summary>
+        /// lblAdminEmailNot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdminEmailNot;
+
+        /// <summary>
         /// FLOrg control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,33 @@ namespace CiS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbxEmail;
+
+        /// <summary>
+        /// CmbxConfirmAltEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CmbxConfirmAltEmail;
+
+        /// <summary>
+        /// dvAdminEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvAdminEmail;
+
+        /// <summary>
+        /// txbxAdminEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txbxAdminEmail;
 
         /// <summary>
         /// txbxTel control.
