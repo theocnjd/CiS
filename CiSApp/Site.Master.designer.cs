@@ -24,6 +24,24 @@ namespace CiS
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl accordionSidebar;
 
         /// <summary>
+        /// liAdminPnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAdminPnl;
+
+        /// <summary>
+        /// hrdashboard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hrdashboard;
+
+        /// <summary>
         /// DashboardWrapper control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace CiS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DashboardWrapper;
+
+        /// <summary>
+        /// hrinterface control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hrinterface;
 
         /// <summary>
         /// dvinterface control.

@@ -21,36 +21,36 @@ namespace CiS
             Application["orgkey"] = string.Empty;
         }
 
-        //void Application_Error(object sender, EventArgs e)
-        //{
-        //    // call mathod collection to retrieve values;
-        //    MethodCollections mthdcol = new MethodCollections();
+        void Application_Error(object sender, EventArgs e)
+        {
+            // call mathod collection to retrieve values;
+            MethodCollections mthdcol = new MethodCollections();
 
-        //    // retrieve admin email address
-        //    string email = mthdcol.GetAdminEmail();
+            // retrieve admin email address
+            string email = mthdcol.GetAdminEmail();
 
-        //    // Get last error message
-        //    Exception ex = Server.GetLastError();
+            // Get last error message
+            Exception ex = Server.GetLastError();
 
-        //    // clear last error message
-        //    Server.ClearError();
+            // clear last error message
+            Server.ClearError();
 
-        //    // Lod arror to db
-        //    Logger.Log(ex, email);
+            // Lod arror to db
+            Logger.Log(ex, email);
 
-        //    // check if error is time out / 404 issue and call the dedicated page; otherwise use the default error page.
-        //    if (ex.Message.Contains("timeout"))
-        //    {
-        //        Server.Transfer("~/Error_TimeOut.aspx");
-        //    }
-        //    else if (ex.Message.Contains("Object reference not set") || ex.Message.Contains("does not exist"))
-        //    {
-        //        Server.Transfer("~/Error_PageNoFoound.aspx");
-        //    }
-        //    else
-        //    {
-        //        Server.Transfer("~/Error_Default.aspx");
-        //    }
-        //}
+            // check if error is time out / 404 issue and call the dedicated page; otherwise use the default error page.
+            if (ex.Message.Contains("timeout"))
+            {
+                Server.Transfer("~/Error_TimeOut.aspx");
+            }
+            else if (ex.Message.Contains("Object reference not set") || ex.Message.Contains("does not exist"))
+            {
+                Server.Transfer("~/Error_PageNoFoound.aspx");
+            }
+            else
+            {
+                Server.Transfer("~/Error_Default.aspx");
+            }
+        }
     }
 }

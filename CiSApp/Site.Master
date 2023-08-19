@@ -170,18 +170,28 @@
                 </a>
 
                 <!-- Divider -->
-                <hr class="sidebar-divider my-0">
+                <hr class="sidebar-divider my-0" />
 
-                <li class="nav-item" id="DashboardWrapper" runat="server">
+                <li class="nav-item" id="liAdminPnl" runat="server" visible="false">
+                    <a class="nav-link" href="AdminPanel">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        Admin
+                    </a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider" id="hrdashboard" runat="server" />
+
+                <li class="nav-item" id="DashboardWrapper" visible="false" runat="server">
                     <a class="nav-link" href="CiSDashboard">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         Dashboard
 
                     </a>
                 </li>
-
+              
                 <!-- Divider -->
-                <hr class="sidebar-divider">
+                <hr class="sidebar-divider" id="hrinterface" runat="server" />
 
                 <!-- Heading -->
                 <div id="dvinterface" runat="server" class="sidebar-heading">
@@ -207,7 +217,7 @@
                         </a>
                     </li>
 
-                    <hr class="sidebar-divider" >
+                    <hr class="sidebar-divider" />
 
                     <li class="nav-item">
                         <a class="nav-link" href="ProcessDonation">
@@ -217,7 +227,7 @@
                     </li>
 
 
-                    <hr class="sidebar-divider">
+                    <hr class="sidebar-divider" />
 
                     <li class="nav-item">
                         <a class="nav-link" href="MemberDetails">

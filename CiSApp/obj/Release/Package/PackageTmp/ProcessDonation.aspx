@@ -52,23 +52,32 @@
                             <dx:GridViewDataTextColumn FieldName="DonationHeadid" ReadOnly="True" Visible="false" VisibleIndex="1">
                                 <EditFormSettings Visible="False" />
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn FieldName="Total" VisibleIndex="2">
+                            <dx:GridViewDataTextColumn FieldName="Total" Caption="Manual Donation Total" VisibleIndex="2">
                                 <PropertiesTextEdit>
                                     <ValidationSettings>
-                                        <RegularExpression ErrorText="The value must be in decimal" ValidationExpression="\d+" />
+                                        <RegularExpression ErrorText="The value must be number" ValidationExpression="\d+" />
                                     </ValidationSettings>
                                 </PropertiesTextEdit>
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataDateColumn FieldName="CheckedDate" VisibleIndex="5">
+
+                            <dx:GridViewDataTextColumn FieldName="DigitalDonationTotal" VisibleIndex="3">
+                                <PropertiesTextEdit>
+                                    <ValidationSettings ErrorTextPosition="Top">
+                                        <RegularExpression ErrorText="The value must be number" ValidationExpression="\d+" />
+                                    </ValidationSettings>
+                                </PropertiesTextEdit>
+                            </dx:GridViewDataTextColumn>
+
+                            <dx:GridViewDataDateColumn FieldName="CheckedDate" VisibleIndex="4">
                             </dx:GridViewDataDateColumn>
-                            <dx:GridViewDataDateColumn FieldName="LastUpdated" VisibleIndex="6">
+                            <dx:GridViewDataDateColumn FieldName="LastUpdated" VisibleIndex="5">
                                 <EditFormSettings Visible="False" />
                             </dx:GridViewDataDateColumn>
-                            <dx:GridViewDataComboBoxColumn FieldName="CheckBy" VisibleIndex="3">
+                            <dx:GridViewDataComboBoxColumn FieldName="CheckBy" VisibleIndex="6">
                                 <PropertiesComboBox DataSourceID="ds_User" TextField="FullName" ValueField="Userid">
                                 </PropertiesComboBox>
                             </dx:GridViewDataComboBoxColumn>
-                            <dx:GridViewDataComboBoxColumn Caption="Cross-Check By" FieldName="xCheckBy" VisibleIndex="4">
+                            <dx:GridViewDataComboBoxColumn Caption="Cross-Check By" FieldName="xCheckBy" VisibleIndex="7">
                                 <PropertiesComboBox DataSourceID="ds_xUser" TextField="FullName" ValueField="Userid">
                                 </PropertiesComboBox>
                             </dx:GridViewDataComboBoxColumn>
@@ -86,8 +95,9 @@
                             <asp:Parameter Name="CheckBy" Type="Int32" />
                             <asp:Parameter Name="XCheckBy" Type="Int32" />
                             <asp:Parameter Name="CheckedDate" Type="DateTime" />
-                            <asp:Parameter Name="DonHdOrgid" Type="Object" />
+                            <asp:Parameter Name="DonHdOrgid" DbType="Guid" />
                             <asp:Parameter Name="DonationHeadid" Type="Int32" />
+                            <asp:Parameter Name="DigitalDonationTotal" Type="Decimal" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
             </div>

@@ -80,7 +80,7 @@ namespace CiS
         public string GetLogonOrgKey(string email)
         {
             string returnValue;
-            sqlcode = "SELECT Orgid FROM tcOrganisation WHERE Email = '" + email + "'";
+            sqlcode = "SELECT Orgid FROM tcOrganisation WHERE (Email = '" + email + "' OR OrgAdminEmail = '" + email + "') ";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -94,7 +94,7 @@ namespace CiS
         public string GetOrgName(string email)
         {
             string returnValue;
-            sqlcode = "SELECT ISNULL(NULLIF(OrgName,' '), 'cFis System') as OrgName FROM tcOrganisation WHERE Email = '" + email + "'";
+            sqlcode = "SELECT ISNULL(NULLIF(OrgAbbName,' '), 'cFis System') as OrgName FROM tcOrganisation WHERE (Email = '" + email + "' OR OrgAdminEmail = '" + email + "') ";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -108,7 +108,7 @@ namespace CiS
         public string GetLogOnIdentity(string email)
         {
             string returnValue;
-            sqlcode = "SELECT OrgIdentity FROM tcOrganisation WHERE Email = '" + email + "'";
+            sqlcode = "SELECT OrgIdentity FROM tcOrganisation WHERE (Email = '" + email + "' OR OrgAdminEmail = '" + email + "') ";
             using (SqlConnection cn = new SqlConnection(cis_connStr))
             {
                 SqlCommand cmd = new SqlCommand(sqlcode, cn);
@@ -135,6 +135,25 @@ namespace CiS
                 cmd.ExecuteNonQuery();
                 cn.Close();
             }
+        }
+        public Int32 GetCurrentUserRole(string email, int roleid)
+        {
+            Int32 _roleid;
+            using (SqlConnection cn = new SqlConnection(cis_connStr))
+            {
+                SqlCommand cmd = new SqlCommand("UspGetUserRole", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@roleid", roleid);
+
+                cmd.CommandTimeout = 60;
+                cn.Open();
+                _roleid = Convert.ToInt32(cmd.ExecuteScalar());
+                cn.Close();
+            }
+            return _roleid;
         }
 
         public void DeleteUploadStagingTable(Guid identifier, string tblname)

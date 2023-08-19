@@ -39,7 +39,8 @@ namespace CiS
                 FLOrg.DataBind();
                 GdvwUser.DataBind();
             }
-             string orgname = ((Label)FLOrg.FindControl("OrgAbbNameLabel")).Text;
+       
+            string orgname = ((Label)FLOrg.FindControl("OrgAbbNameLabel")).Text;
             if (string.IsNullOrEmpty(orgname))
             {
                 lblNotification.Text = "Please, fill in your organisation's remaining details.";
@@ -50,7 +51,8 @@ namespace CiS
             {
                 lblNotification.Visible = false;
             }
-        }
+
+           }
 
         protected void BtnShowEdit_Click(object sender, EventArgs e)
         {
@@ -66,6 +68,22 @@ namespace CiS
             txbxAdLn2.Text = ((Label)FLOrg.FindControl("AddressLine2Label")).Text;
             txbxCity.Text = ((Label)FLOrg.FindControl("CityLabel")).Text;
             txbxPostCode.Text = ((Label)FLOrg.FindControl("PostCodeLabel")).Text;
+            txbxAdminEmail.Text = ((Label)FLOrg.FindControl("AdminEmailLabel")).Text;
+            var adminemailid = ((Label)FLOrg.FindControl("lblConfirmAdminEmail")).Text;
+
+            if (string.IsNullOrEmpty(adminemailid))
+            {
+                CmbxConfirmAltEmail.SelectedValue = "-1";
+            }
+            else if(adminemailid == "No")
+            {
+                CmbxConfirmAltEmail.SelectedValue = "0";
+            }
+            else
+            {
+                CmbxConfirmAltEmail.SelectedValue = "1";
+            }
+            
 
             string usertype = ((Label)FLOrg.FindControl("UserTypeidLabel")).Text;
 
@@ -105,6 +123,8 @@ namespace CiS
             DS_Org.UpdateParameters[13].DefaultValue = txbxPostCode.Text;
             DS_Org.UpdateParameters[14].DefaultValue = txbxOrgAbbName.Text;
             DS_Org.UpdateParameters[15].DefaultValue = orgid;
+            DS_Org.UpdateParameters[16].DefaultValue = CmbxConfirmAltEmail.SelectedValue.ToString() == "1" ? txbxEmail.Text : txbxAdminEmail.Text;
+            DS_Org.UpdateParameters[17].DefaultValue = CmbxConfirmAltEmail.SelectedValue.ToString() == "1" ? "Yes" : "No";
 
             // Call update method to update org details in the database
             DS_Org.Update();
@@ -131,39 +151,15 @@ namespace CiS
             FLOrg.Visible = true;
         }
 
-        //protected void BtnEdit_Click(object sender, EventArgs e)
-        //{
-        //    EnabledControl(true);
-        //}
-
-        //private void EnabledControl(bool _option)
-        //{
-        //    txbxOrgName.Enabled = _option;
-        //    txbxUniqueNo.Enabled = _option;
-        //    //txbxEmail.Enabled = _option;
-        //    txbxTel.Enabled = _option;
-        //    txbxMobile.Enabled = _option;
-        //    txbxFName.Enabled = _option;
-        //    txbxLName.Enabled = _option;
-        //    cmbxUserType.Enabled = _option;
-        //    txbxAdLn1.Enabled = _option;
-        //    txbxAdLn2.Enabled = _option;
-        //    txbxCity.Enabled = _option;
-        //    txbxPostCode.Enabled = _option;
-        //    txbxAddsearch.Enabled = _option;
-        //    txbxOrgAbbName.Enabled = _option;
-        //    BtnCancel.Enabled = _option;
-        //    BtnSave.Enabled = _option;
-        //    BtnCancel.Visible = _option;
-        //    BtnSave.Visible = _option;
-        //    BtnEdit.Visible = !_option;
-        //    txbxAddsearch.Enabled = _option;
-        //}
-
         protected void GdvwUser_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
             DS_User.InsertParameters[1].DefaultValue = Application["orgkey"].ToString();
         }
 
-    }
+        protected void DDLConfirmAltEmail_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dvAdminEmail.Visible = CmbxConfirmAltEmail.SelectedValue.ToString() == "0" ? true : false;
+        }
+
+     }
 }

@@ -43,13 +43,13 @@
 
     <dx:ASPxPageControl ID="pgcrtl" runat="server" ActiveTabIndex="0" Theme="iOS" Width="100%">
         <TabPages>
-
             <dx:TabPage Name="Your Detail" Text="Your Detail">
                 <ContentCollection>
                     <dx:ContentControl runat="server">
+             
                         <asp:Label ID="lblNotification" runat="server" Visible="false" ForeColor="Red" ></asp:Label>
-
-                        <br />
+                        <asp:Label ID="lblAdminEmailNot" runat="server" Visible="false" ForeColor="Red" ></asp:Label>
+                        
                         <asp:FormView ID="FLOrg" runat="server" DataSourceID="DS_Org" CellPadding="4" ForeColor="#333333" Width="500px">
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -76,22 +76,35 @@
                                                         <asp:Label ID="OrgNameLabel" runat="server" Height="20px" Text='<%# Bind("OrgName") %>' />
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
+                                                 <div class="form-group">
                                                     <div class="col-md-10">
-                                                       <b>Unique No:</b>
-            <asp:Label ID="OrgUniqueNoLabel" runat="server" Height="20px" Text='<%# Bind("OrgUniqueNo") %>' />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-10">
-                                                        <b>OrgAbbName:</b>
+                                                        <b>Organisation Short Name:</b>
                                                         <asp:Label ID="OrgAbbNameLabel" runat="server" Height="20px" Text='<%# Bind("OrgAbbName") %>' />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-10">
+                                                       <b>Unique No:</b>
+                                                        <asp:Label ID="OrgUniqueNoLabel" runat="server" Height="20px" Text='<%# Bind("OrgUniqueNo") %>' />
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="form-group">
+                                                    <div class="col-md-10">
                                                         <b>Email:</b>
                                                         <asp:Label ID="EmailLabel" runat="server" Height="20px" Text='<%# Bind("Email") %>' />
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <div class="col-md-10">
+                                                        <b>Is email above the same as your admin emai?:</b>
+                                                        <asp:Label ID="lblConfirmAdminEmail" runat="server" Height="20px" Text='<%# Bind("IsEmailSameAsAdmin") %>' />
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <div class="col-md-10">
+                                                        <b>Admin Email:</b>
+                                                        <asp:Label ID="AdminEmailLabel" runat="server" Height="20px" Text='<%# Bind("OrgAdminEmail") %>' />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -199,7 +212,8 @@
                                         <div class="form-group">
                                             <asp:Label runat="server" CssClass="col-md-2 control-label">Organisation Short Name</asp:Label>
                                             <div class="col-md-10">
-                                                <asp:TextBox ID="txbxOrgAbbName" runat="server" AutoPostBack="false" CssClass="form-control" Width="400px" />
+                                                <asp:TextBox ID="txbxOrgAbbName" runat="server" AutoPostBack="false" CssClass="form-control" Width="400px"
+                                                    MaxLength="12" ToolTip="Provide a short name to customise your page!" />
                                             </div>
                                         </div>
 
@@ -215,7 +229,29 @@
                                                 <asp:TextBox ID="txbxEmail" runat="server" AutoPostBack="false" Enabled="false" CssClass="form-control" Width="400px" />
                                             </div>
                                         </div>
+                                          <div class="form-group">
+                                            <asp:Label runat="server" CssClass="col-md-2 control-label">Are you using your email as an admin email?</asp:Label>
+                                            <div class="col-md-10">
+                                                <asp:DropDownList
+                                                    ID="CmbxConfirmAltEmail"
+                                                    runat="server"
+                                                    CssClass="form-control"
+                                                     ToolTip="An administrator email has a priledge to access your dedicated dashboard. You can choose 'Yes' to use your main email or 'No' to provide an administrator email. Please, note that you will need to register and confirm this email."
+                                                    Width="400px" 
+                                                     AutoPostBack="true" OnSelectedIndexChanged="DDLConfirmAltEmail_SelectedIndexChanged">
+                                                    <asp:ListItem Text="--- Choose 'No' to provide an admin email----" Value="-1" />
+                                                     <asp:ListItem Text="No" Value="0" />
+                                                     <asp:ListItem Text="Yes" Value="1" />
+                                                    </asp:DropDownList>
+                                            </div>
+                                        </div>
 
+                                         <div class="form-group" id="dvAdminEmail" runat="server"  visible="false">
+                                            <asp:Label runat="server" CssClass="col-md-2 control-label">Admin Email</asp:Label>
+                                            <div class="col-md-10">
+                                                <asp:TextBox ID="txbxAdminEmail" runat="server" AutoPostBack="false"  CssClass="form-control" Width="400px" />
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <asp:Label runat="server" AutoPostBack="false" AssociatedControlID="txbxTel" CssClass="col-md-2 control-label">Telephone</asp:Label>
                                             <div class="col-md-10">
@@ -381,6 +417,8 @@
             <asp:Parameter Name="PostCode" Type="String" />
             <asp:Parameter Name="OrgAbbName" Type="String" />
             <asp:Parameter Name="Orgid" DbType="Guid" />
+            <asp:Parameter Name="OrgAdminEmail" Type="String" />
+            <asp:Parameter Name="IsEmailSameAsAdmin" Type="String" />
         </UpdateParameters>
     </asp:SqlDataSource>
 
